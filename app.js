@@ -1190,6 +1190,18 @@
     },
   ];
 
+  function parseDictionaryRows(rows) {
+    return rows
+      .trim()
+      .split('\n')
+      .map((row) => row.trim())
+      .filter(Boolean)
+      .map((row) => {
+        const [ru, en, category = 'Basic', note = ''] = row.split('|').map((value) => value.trim());
+        return [ru, en, category, note];
+      });
+  }
+
   const dictionaryEntries = [
     ['август', 'August', 'Time'],
     ['автобус', 'bus', 'Travel'],
@@ -1396,6 +1408,1803 @@
     ['язык', 'language', 'Study'],
     ['январь', 'January', 'Time'],
     ['я', 'I', 'Basic'],
+    ...parseDictionaryRows(`
+абажур|lampshade|Home
+абонемент|membership pass|Daily Life
+абрикос|apricot|Food
+авария|accident|Safety
+авиабилет|plane ticket|Travel
+авиакомпания|airline|Travel
+автобусная остановка|bus stop|Travel
+автомат|machine|City
+автоматически|automatically|Basic
+автомобиль|car|Travel
+агентство|agency|Work
+адаптер|adapter|Tech
+администратор|administrator|Work
+аккаунт|account|Tech
+аккумулятор|battery|Tech
+аккуратно|carefully / neatly|Basic
+активность|activity|Daily Life
+активный|active|Adjectives
+акция|discount sale / promotion|Shopping
+аллея|alley / path|City
+альбом|album|Media
+анализ|analysis|Work
+анализировать|analyze|Verbs
+ананас|pineapple|Food
+анкета|form / questionnaire|Documents
+апельсин|orange|Food
+аппарат|device|Tech
+аренда|rent|Home
+арендовать|rent|Verbs
+армия|army|Society
+аромат|smell / aroma|Food
+архив|archive|Tech
+аэропорт|airport|Travel
+бабушка|grandmother / grandma|People
+багажник|trunk|Travel
+база|base / database|Tech
+балкон|balcony|Home
+балл|score / point|Study
+бар|bar|City
+батарейка|battery|Tech
+бедный|poor|Adjectives
+безопасность|safety / security|Safety
+безопасный|safe|Adjectives
+белка|squirrel|Animals
+белье|laundry / underwear|Clothes
+берег|shore / bank|Nature
+беречь|take care of / save|Verbs
+беседа|conversation / talk|Communication
+беспокоиться|worry|Verbs
+беспокойство|worry / anxiety|Feelings
+бизнес|business|Work
+близкий|close|Adjectives
+блокнот|notepad|Study
+блюдо|dish|Food
+богатый|rich|Adjectives
+болеть|be sick / hurt|Health
+болото|swamp|Nature
+ботинки|boots|Clothes
+брак|marriage / defect|People
+брат|brother|People
+брать|take|Verbs
+бренд|brand|Shopping
+броня|reservation / armor|Travel
+бронировать|book / reserve|Verbs
+будильник|alarm clock|Home
+будущее|future|Time
+бумага|paper|Study
+бургер|burger|Food
+бутылка|bottle|Food
+бывший|former / ex|People
+бюджет|budget|Money
+вагон|train car|Travel
+валюта|currency|Money
+варенье|jam|Food
+вводить|enter / type in|Verbs
+вежливый|polite|Adjectives
+велосипед|bike / bicycle|Travel
+верить|believe|Verbs
+вероятно|probably|Basic
+верх|top|Basic
+вес|weight|Health
+веселый|cheerful / fun|Adjectives
+весть|news|Media
+ветер|wind|Weather
+ветка|branch|Nature
+вечеринка|party|Daily Life
+вещь|thing / item|Basic
+взрослый|adult|People
+взять|take|Verbs
+виза|visa|Travel
+вилка|fork|Kitchen
+вино|wine|Food
+вирус|virus|Health
+включать|turn on|Verbs
+вкус|taste|Food
+вкусный|tasty / delicious|Adjectives
+владелец|owner|People
+влажный|wet / damp|Adjectives
+влево|to the left|Directions
+влияние|influence|Society
+вместо|instead of|Basic
+внешний|external / outside|Adjectives
+вниз|down|Directions
+внимание|attention|Basic
+внутри|inside|Basic
+внутренний|internal / inner|Adjectives
+вовремя|on time|Time
+воздух|air|Nature
+возможно|possibly / maybe|Basic
+возраст|age|People
+вокзал|train station|Travel
+волк|wolf|Animals
+волна|wave|Nature
+волосы|hair|Body
+волшебный|magic / magical|Adjectives
+ворота|gate|City
+воскресенье|Sunday|Time
+воспитатель|kindergarten teacher|People
+воспоминание|memory|Feelings
+восстановить|restore / recover|Verbs
+восток|east|Directions
+вперед|forward|Directions
+вправо|to the right|Directions
+врач|doctor|Health
+вредный|harmful|Adjectives
+временный|temporary|Adjectives
+встреча|meeting|Work
+вход|entrance|City
+выбирать|choose|Verbs
+выбор|choice|Basic
+выглядеть|look / seem|Verbs
+выезд|departure / exit|Travel
+выключать|turn off|Verbs
+выполнить|complete / do|Verbs
+выпуск|release / graduation|Study
+выражение|expression|Study
+выход|exit|City
+выходной|day off|Time
+выше|higher|Basic
+газета|newspaper|Media
+гараж|garage|Home
+гардероб|wardrobe / cloakroom|Clothes
+гвоздь|nail|Home
+герой|hero / character|Media
+гитара|guitar|Hobby
+глава|chapter / head|Study
+гладить|iron / pet|Verbs
+глаз|eye|Body
+глубокий|deep|Adjectives
+глупый|stupid / silly|Adjectives
+гнездо|nest|Nature
+голова|head|Body
+голодный|hungry|Adjectives
+голос|voice|Body
+гора|mountain|Nature
+горло|throat|Body
+гость|guest|People
+гостиница|hotel|Travel
+готовить|cook / prepare|Verbs
+готовый|ready|Adjectives
+градус|degree|Weather
+граница|border|Travel
+график|schedule / graph|Work
+гриб|mushroom|Food
+громкий|loud|Adjectives
+грустный|sad|Feelings
+грязный|dirty|Adjectives
+губы|lips|Body
+давать|give|Verbs
+давление|pressure|Health
+данные|data|Tech
+дарить|give as a present|Verbs
+дата|date|Time
+двигаться|move|Verbs
+двор|yard|Home
+дворец|palace|City
+дедушка|grandfather / grandpa|People
+дежурный|person on duty|Work
+действие|action|Basic
+действительно|really / actually|Basic
+деканат|dean office|Study
+декабрь|December|Time
+делать|do / make|Verbs
+делиться|share|Verbs
+демонстрация|demonstration|Study
+деревня|village|City
+держать|hold / keep|Verbs
+деталь|detail / part|Basic
+детский|children's|Adjectives
+дешевый|cheap|Adjectives
+дизайн|design|Work
+директор|director / principal|Work
+диск|disk / disc|Tech
+длина|length|Basic
+длинный|long|Adjectives
+дневник|diary / planner|Study
+добавить|add|Verbs
+добрый|kind|Adjectives
+доверие|trust|Feelings
+договор|contract / agreement|Documents
+документ|document|Documents
+долг|debt|Money
+должен|must / should|Basic
+доставка|delivery|Shopping
+достопримечательность|landmark / sight|Travel
+доход|income|Money
+дочь|daughter|People
+драка|fight|Safety
+дракон|dragon|Media
+дружба|friendship|People
+духовка|oven|Kitchen
+душ|shower|Home
+дым|smoke|Weather
+дыня|melon|Food
+дыхание|breathing|Health
+единица|one / unit|Basic
+ежедневно|daily|Time
+ежемесячно|monthly|Time
+елка|Christmas tree|Nature
+естественно|naturally|Basic
+жалоба|complaint|Services
+жаловаться|complain|Verbs
+жареный|fried|Food
+жарко|hot|Weather
+жевать|chew|Verbs
+желание|wish / desire|Feelings
+желтый|yellow|Adjectives
+желудок|stomach|Body
+жена|wife|People
+живой|alive / live|Adjectives
+живот|belly / stomach|Body
+животное|animal|Animals
+жирный|fat / oily|Adjectives
+журнал|magazine / journal|Media
+заблокировать|block / lock|Verbs
+заболевание|illness / disease|Health
+забота|care|Feelings
+забыть|forget|Verbs
+заведение|place / institution|City
+зависеть|depend|Verbs
+загрузка|download / loading|Tech
+заголовок|headline / title|Media
+задание|assignment / task|Study
+заказ|order|Shopping
+заказывать|order|Verbs
+закат|sunset|Nature
+закрыть|close|Verbs
+зал|hall / gym|City
+замена|replacement|Services
+заметить|notice|Verbs
+заметка|note|Study
+замечательный|wonderful|Adjectives
+занятие|class / activity|Study
+запад|west|Directions
+запах|smell|Basic
+записать|write down / record|Verbs
+запись|record / appointment|Documents
+заплатить|pay|Verbs
+запомнить|remember / memorize|Verbs
+запрещено|forbidden|Safety
+зарплата|salary|Money
+зарядка|charger / exercise|Tech
+заснуть|fall asleep|Verbs
+заставка|screensaver|Tech
+защита|protection|Safety
+заявление|application / statement|Documents
+звезда|star|Nature
+звук|sound|Media
+здание|building|City
+здоровье|health|Health
+зеркало|mirror|Home
+зерно|grain|Food
+злой|angry / mean|Adjectives
+змея|snake|Animals
+знакомый|acquaintance / familiar|People
+знак|sign|City
+зонтик|umbrella|Weather
+зоопарк|zoo|City
+зуб|tooth|Body
+играть|play|Verbs
+идея|idea|Basic
+известный|famous|Adjectives
+изменить|change|Verbs
+изучать|study / learn|Verbs
+имя|name|People
+иногда|sometimes|Time
+инструмент|tool / instrument|Work
+инструкция|instruction|Documents
+интерес|interest|Feelings
+иностранец|foreigner|People
+июль|July|Time
+июнь|June|Time
+кабинет|office / classroom|Work
+кабель|cable|Tech
+камень|stone|Nature
+камера|camera|Tech
+канал|channel|Media
+каникулы|vacation / school break|Time
+капля|drop|Nature
+карман|pocket|Clothes
+карта|map / card|Travel
+картина|painting / picture|Media
+картофель|potato|Food
+касса|cash desk|Shopping
+кататься|ride / skate|Verbs
+категория|category|Basic
+каша|porridge|Food
+квитанция|receipt / bill|Documents
+кепка|cap|Clothes
+кислый|sour|Adjectives
+кисть|brush / hand|Study
+клавиатура|keyboard|Tech
+классный|cool / great|Adjectives
+клиент|client / customer|Work
+клиника|clinic|Health
+ключ|key|Home
+кнопка|button|Tech
+кожа|skin|Body
+колбаса|sausage|Food
+колено|knee|Body
+коллега|colleague|Work
+колледж|college|Study
+колонка|speaker / column|Tech
+команда|team / command|Work
+командировка|business trip|Work
+комар|mosquito|Animals
+комедия|comedy|Media
+комната|room|Home
+компания|company|Work
+конверт|envelope|Documents
+кондиционер|air conditioner|Home
+конец|end|Basic
+конкурс|contest|Study
+контакт|contact|Communication
+концерт|concert|Hobby
+копия|copy|Documents
+корзина|basket / cart|Shopping
+коридор|hallway|Home
+коричневый|brown|Adjectives
+коробка|box|Home
+короткий|short|Adjectives
+костюм|suit / costume|Clothes
+кошка|cat|Animals
+край|edge / region|Basic
+кран|faucet / crane|Home
+кредит|loan / credit|Money
+кресло|armchair|Home
+кричать|shout|Verbs
+кроссовки|sneakers|Clothes
+круг|circle|Basic
+кружка|mug|Kitchen
+крыло|wing|Animals
+крыша|roof|Home
+ксерокопия|photocopy|Documents
+курица|chicken|Food
+куртка|jacket|Clothes
+кусок|piece|Food
+лампа|lamp|Home
+левый|left|Directions
+легенда|legend|Media
+легкий|easy / light|Adjectives
+лекарство|medicine|Health
+лекция|lecture|Study
+лента|tape / feed|Tech
+лестница|stairs|Home
+лететь|fly|Verbs
+лечить|treat / heal|Verbs
+лимон|lemon|Food
+линия|line|Basic
+лист|sheet / leaf|Study
+личный|personal|Adjectives
+ловить|catch|Verbs
+логин|login|Tech
+ложка|spoon|Kitchen
+ломаться|break down|Verbs
+лошадь|horse|Animals
+лужа|puddle|Weather
+лук|onion / bow|Food
+луч|ray / beam|Nature
+лучше|better|Basic
+лыжи|skis|Hobby
+любимый|favorite / loved|Adjectives
+май|May|Time
+майка|T-shirt / tank top|Clothes
+макароны|pasta|Food
+мальчик|boy|People
+мандарин|tangerine|Food
+марка|stamp / brand|Documents
+маршрут|route|Travel
+маска|mask|Health
+масло|butter / oil|Food
+материал|material|Study
+матч|match / game|Hobby
+мебель|furniture|Home
+медленно|slowly|Basic
+медсестра|nurse|Health
+мелкий|small / shallow|Adjectives
+мелочь|small change / detail|Money
+меньше|less|Basic
+меню|menu|Food
+мера|measure|Basic
+мероприятие|event|Daily Life
+метро|subway|Travel
+мечта|dream|Feelings
+мешок|sack / bag|Home
+милый|cute / nice|Adjectives
+мимо|past / by|Directions
+мир|world / peace|Society
+мнение|opinion|Communication
+мобильный|mobile|Tech
+модель|model|Work
+мозг|brain|Body
+мокрый|wet|Adjectives
+молния|lightning / zipper|Weather
+молодой|young|Adjectives
+молчать|be silent|Verbs
+море|sea|Nature
+морковь|carrot|Food
+мост|bridge|City
+муж|husband|People
+мужчина|man|People
+музей|museum|City
+мыло|soap|Home
+мясо|meat|Food
+мягкий|soft|Adjectives
+наблюдать|watch / observe|Verbs
+навык|skill|Study
+надежда|hope|Feelings
+надежный|reliable|Adjectives
+нажать|press / click|Verbs
+название|name / title|Basic
+назначить|schedule / appoint|Verbs
+наклейка|sticker|Study
+наличные|cash|Money
+налог|tax|Money
+направление|direction|Directions
+напротив|opposite / across from|Directions
+настроение|mood|Feelings
+настройка|setting|Tech
+натуральный|natural|Adjectives
+наука|science|Study
+наушники|headphones|Tech
+начало|beginning|Basic
+начальник|boss|Work
+начинать|start|Verbs
+небо|sky|Nature
+невозможно|impossible|Adjectives
+недавно|recently|Time
+недорогой|inexpensive|Adjectives
+нежный|gentle / tender|Adjectives
+незнакомый|unfamiliar / stranger|People
+необходимый|required / necessary|Adjectives
+нервный|nervous|Feelings
+несколько|several|Basic
+низкий|low / short|Adjectives
+никогда|never|Time
+новость|news|Media
+нога|leg / foot|Body
+нож|knife|Kitchen
+ножницы|scissors|Study
+номер|number / room|Basic
+нос|nose|Body
+носить|wear / carry|Verbs
+ноябрь|November|Time
+нужный|required / useful|Adjectives
+обещать|promise|Verbs
+облако|cloud|Weather
+область|region / area|Basic
+обмен|exchange|Money
+обновить|update|Verbs
+объяснить|explain|Verbs
+обязательно|definitely / necessarily|Basic
+овощи|vegetables|Food
+огонь|fire|Nature
+огурец|cucumber|Food
+одеяло|blanket|Home
+однажды|once / one day|Time
+ожидание|waiting|Daily Life
+озеро|lake|Nature
+опасный|dangerous|Adjectives
+оператор|operator|Services
+описание|description|Study
+оплата|payment|Money
+оплатить|pay for|Verbs
+опоздать|be late|Verbs
+опыт|experience|Work
+оранжевый|orange|Adjectives
+организация|organization|Work
+орех|nut|Food
+освещение|lighting|Home
+основной|main / basic|Adjectives
+остановить|stop|Verbs
+остров|island|Nature
+ответ|answer|Study
+отдых|rest / vacation|Daily Life
+отдыхать|rest / relax|Verbs
+отдел|department|Work
+отец|father|People
+отзыв|review / feedback|Shopping
+охрана|security|Safety
+оценка|grade / rating|Study
+ошибка|mistake / error|Study
+пакет|bag / package|Shopping
+палец|finger / toe|Body
+палка|stick|Nature
+пальто|coat|Clothes
+память|memory|Tech
+панель|panel|Tech
+пара|pair / class|Study
+парковка|parking lot|City
+пароль|password|Tech
+пассажир|passenger|Travel
+паста|paste / pasta|Food
+пауза|pause|Basic
+паук|spider|Animals
+печать|print / stamp|Documents
+печенье|cookie|Food
+пешеход|pedestrian|City
+письмо|letter / email|Communication
+план|plan|Work
+планировать|plan|Verbs
+платеж|payment|Money
+платье|dress|Clothes
+плечо|shoulder|Body
+пляж|beach|Travel
+подарок|gift|Daily Life
+подвал|basement|Home
+поддержка|support|Services
+поделиться|share|Verbs
+подписка|subscription|Tech
+подписчик|subscriber|Media
+подробно|in detail|Basic
+подруга|female friend|People
+подушка|pillow|Home
+поездка|trip|Travel
+поздравить|congratulate|Verbs
+покупатель|customer|Shopping
+покупать|buy|Verbs
+пол|floor / gender|Home
+поле|field|Nature
+полезный|useful / healthy|Adjectives
+полиция|police|Safety
+полка|shelf|Home
+половина|half|Basic
+пользователь|user|Tech
+пользоваться|use|Verbs
+понедельник|Monday|Time
+понятно|clear / understandable|Basic
+попробовать|try|Verbs
+порог|threshold|Home
+порт|port|Travel
+портфель|briefcase / schoolbag|Study
+порядок|order|Basic
+посетитель|visitor|People
+посылка|package / parcel|Shopping
+потолок|ceiling|Home
+похожий|similar|Adjectives
+праздник|holiday|Time
+правило|rule|Study
+правый|right|Directions
+предложение|sentence / offer|Study
+предмет|subject / item|Study
+предупреждение|warning|Safety
+презентация|presentation|Study
+преподаватель|teacher / instructor|Study
+приложение|app / application|Tech
+пример|example|Study
+принести|bring|Verbs
+принтер|printer|Tech
+природа|nature|Nature
+причина|reason|Basic
+проверить|check|Verbs
+программа|program|Tech
+продавец|salesperson|Shopping
+продолжать|continue|Verbs
+продукт|product / food item|Food
+проект|project|Work
+производство|production|Work
+происходить|happen|Verbs
+пройти|pass / go through|Verbs
+проспект|avenue / brochure|City
+простыня|sheet|Home
+процент|percent|Money
+прямо|straight / directly|Directions
+птица|bird|Animals
+пустой|empty|Adjectives
+пятница|Friday|Time
+равный|equal|Adjectives
+радоваться|be glad / rejoice|Verbs
+радость|joy|Feelings
+раз|time / occasion|Basic
+разбудить|wake up someone|Verbs
+развитие|development|Work
+развивать|develop|Verbs
+разговаривать|talk / speak|Verbs
+раздел|section|Study
+размер|size|Shopping
+разница|difference|Basic
+разрешение|permission / resolution|Documents
+разрешить|allow|Verbs
+район|district|City
+ракета|rocket|Tech
+раковина|sink|Home
+рано|early|Time
+распечатать|print out|Verbs
+расписание|schedule / timetable|Time
+рассказ|story|Media
+рассказать|tell|Verbs
+расстояние|distance|Travel
+расход|expense|Money
+расческа|comb|Home
+растение|plant|Nature
+расти|grow|Verbs
+расчет|calculation / payment|Money
+реакция|reaction|Communication
+реальный|real|Adjectives
+ребята|guys / children|People
+регистрация|registration|Documents
+редкий|rare|Adjectives
+режим|mode / schedule|Tech
+резать|cut|Verbs
+резерв|reserve|Work
+резкий|sharp / sudden|Adjectives
+результат|result|Study
+рейс|flight / bus run|Travel
+реклама|advertisement|Media
+рекомендация|recommendation|Services
+ремень|belt|Clothes
+ремонт|repair|Home
+репетитор|tutor|Study
+рецепт|recipe / prescription|Food
+речь|speech|Communication
+рис|rice|Food
+рисовать|draw|Verbs
+риск|risk|Safety
+рисунок|drawing|Study
+ровно|exactly / evenly|Basic
+роза|rose|Nature
+роль|role|Work
+роман|novel / romance|Media
+роспись|signature / painting|Documents
+рубашка|shirt|Clothes
+рубль|ruble|Money
+руководитель|manager / supervisor|Work
+ручка|pen / handle|Study
+рынок|market|Shopping
+ряд|row / series|Basic
+рядом|nearby|Directions
+сайт|website|Tech
+салат|salad|Food
+салон|salon / showroom|Services
+самолет|airplane|Travel
+самостоятельно|independently|Basic
+сапоги|high boots|Clothes
+сахар|sugar|Food
+сбросить|reset / drop|Verbs
+свадьба|wedding|People
+свет|light|Home
+светлый|light / bright|Adjectives
+свежий|fresh|Adjectives
+свекла|beet|Food
+сверху|from above / on top|Directions
+свитер|sweater|Clothes
+свобода|freedom|Society
+свободный|free / available|Adjectives
+связь|connection|Communication
+север|north|Directions
+сезон|season|Time
+секрет|secret|Communication
+секунда|second|Time
+сервис|service|Services
+сердитый|angry|Feelings
+сердце|heart|Body
+серый|gray|Adjectives
+серьезный|serious|Adjectives
+сигнал|signal|Tech
+сидеть|sit|Verbs
+сила|strength|Body
+символ|symbol|Study
+синий|blue|Adjectives
+сироп|syrup|Food
+система|system|Tech
+ситуация|situation|Basic
+скамейка|bench|City
+скачать|download|Verbs
+скидка|discount|Shopping
+склад|warehouse|Work
+сколько|how much / how many|Basic
+скорость|speed|Travel
+скоро|soon|Time
+скучать|miss someone / be bored|Verbs
+скучный|boring|Adjectives
+слабый|weak|Adjectives
+следующий|next|Time
+сливки|cream|Food
+сложный|complex / difficult|Adjectives
+сломать|break|Verbs
+случай|case / occasion|Basic
+смелый|brave|Adjectives
+смена|shift / change|Work
+смешной|funny|Adjectives
+смеяться|laugh|Verbs
+смысл|meaning / sense|Study
+снимать|take off / rent / film|Verbs
+снимок|snapshot / scan|Media
+собака|dog|Animals
+собеседование|job interview|Work
+собрать|collect / assemble|Verbs
+событие|event|Daily Life
+совет|advice|Communication
+совещание|meeting|Work
+современный|modern|Adjectives
+совсем|completely / at all|Basic
+согласен|agree|Communication
+содержать|contain / support|Verbs
+создать|create|Verbs
+сок|juice|Food
+соль|salt|Food
+сомневаться|doubt|Verbs
+сон|sleep / dream|Health
+сонный|sleepy|Feelings
+сообщение|message|Communication
+сосед|neighbor|People
+сосиска|hot dog sausage|Food
+состав|composition / team|Work
+сотрудник|employee|Work
+соус|sauce|Food
+сохранить|save|Verbs
+социальный|social|Adjectives
+спальня|bedroom|Home
+специалист|specialist|Work
+список|list|Study
+спокойный|calm|Adjectives
+справка|certificate / reference|Documents
+справа|on the right|Directions
+сравнить|compare|Verbs
+среда|Wednesday / environment|Time
+средний|middle / average|Adjectives
+срок|deadline / term|Work
+срочно|urgently|Basic
+ссылка|link|Tech
+стакан|glass|Kitchen
+стандартный|standard|Adjectives
+старый|old|Adjectives
+статья|article|Media
+стена|wall|Home
+степень|degree|Study
+стирать|wash / erase|Verbs
+стирка|laundry|Home
+стоимость|cost|Money
+стоянка|parking area|City
+страна|country|Travel
+страница|page|Study
+страх|fear|Feelings
+страховка|insurance|Documents
+строить|build|Verbs
+стройка|construction site|Work
+строка|line / row|Tech
+студент|student|Study
+суббота|Saturday|Time
+суд|court|Society
+судьба|fate|Feelings
+сумма|amount|Money
+сухой|dry|Adjectives
+счастливый|happy|Feelings
+счет|bill / account|Money
+считать|count / think|Verbs
+сын|son|People
+сыр|cheese|Food
+сырой|raw / damp|Adjectives
+сюда|here / to here|Directions
+таблетка|pill|Health
+таблица|table / chart|Study
+таймер|timer|Tech
+тарелка|plate|Kitchen
+творог|cottage cheese|Food
+театр|theater|City
+текст|text|Study
+тема|topic|Study
+темный|dark|Adjectives
+температура|temperature|Health
+тень|shadow|Nature
+теория|theory|Study
+терминал|terminal|Travel
+терять|lose|Verbs
+техника|equipment / technology|Tech
+технический|technical|Adjectives
+течение|flow / period|Nature
+тип|type|Basic
+товар|goods / item|Shopping
+тормоз|brake|Travel
+точка|point / dot|Basic
+точный|exact / accurate|Adjectives
+трава|grass|Nature
+тратить|spend|Verbs
+требование|requirement|Work
+требовать|require / demand|Verbs
+тренер|coach|Hobby
+тренировка|workout / training|Hobby
+треугольник|triangle|Study
+трогать|touch|Verbs
+трубка|tube / handset|Tech
+тротуар|sidewalk|City
+тур|tour|Travel
+туча|storm cloud|Weather
+тяжелый|heavy / hard|Adjectives
+убедиться|make sure|Verbs
+убирать|clean up|Verbs
+уборка|cleaning|Home
+уважать|respect|Verbs
+уважение|respect|Feelings
+уведомление|notification|Tech
+увеличить|increase / enlarge|Verbs
+угадать|guess|Verbs
+угол|corner / angle|Home
+угроза|threat|Safety
+удалить|delete / remove|Verbs
+удивительный|amazing|Adjectives
+удивляться|be surprised|Verbs
+удобный|comfortable / convenient|Adjectives
+ужасный|terrible|Adjectives
+узкий|narrow|Adjectives
+узнать|find out / recognize|Verbs
+указатель|signpost / pointer|City
+улыбаться|smile|Verbs
+уметь|be able to|Verbs
+униформа|uniform|Clothes
+упаковка|package|Shopping
+упасть|fall|Verbs
+управлять|manage / control|Verbs
+уровень|level|Study
+услуга|service|Services
+условие|condition|Work
+успеть|manage in time|Verbs
+успех|success|Work
+усталый|tired|Feelings
+установить|install / set up|Verbs
+устройство|device|Tech
+утюг|iron|Home
+ухо|ear|Body
+участвовать|participate|Verbs
+учебник|textbook|Study
+ученик|pupil / student|Study
+учитель|teacher|Study
+файл|file|Tech
+фамилия|last name|People
+фарш|ground meat|Food
+февраль|February|Time
+ферма|farm|Nature
+фигура|figure / shape|Study
+фиолетовый|purple|Adjectives
+фирма|firm / company|Work
+флешка|USB drive|Tech
+фон|background|Media
+фонарь|streetlight / flashlight|City
+форма|form / shape / uniform|Basic
+формат|format|Tech
+форум|forum|Tech
+фраза|phrase|Study
+халат|robe|Clothes
+характер|character / personality|People
+хвост|tail|Animals
+хитрый|tricky / sly|Adjectives
+хобби|hobby|Hobby
+хозяйка|hostess / owner|People
+холодильник|fridge|Home
+хор|choir|Hobby
+хранить|store / keep|Verbs
+хрупкий|fragile|Adjectives
+художник|artist|People
+цвет|color|Basic
+цветок|flower|Nature
+целиком|entirely|Basic
+целый|whole|Adjectives
+ценный|valuable|Adjectives
+цепочка|chain|Basic
+цифра|digit|Study
+часть|part|Basic
+чашка|cup|Kitchen
+чей|whose|Basic
+чемодан|suitcase|Travel
+честный|honest|Adjectives
+четверг|Thursday|Time
+чистый|clean|Adjectives
+читатель|reader|People
+чувство|feeling|Feelings
+чужой|someone else's / foreign|Adjectives
+шаг|step|Basic
+шапка|hat|Clothes
+шар|ball / sphere|Hobby
+шарф|scarf|Clothes
+шахматы|chess|Hobby
+шашлык|shashlik / kebab|Food
+шептать|whisper|Verbs
+шина|tire|Travel
+шкаф|closet / cabinet|Home
+шляпа|hat|Clothes
+шоколад|chocolate|Food
+шоссе|highway|Travel
+шум|noise|Basic
+шутка|joke|Communication
+щека|cheek|Body
+щетка|brush|Home
+щит|shield / panel|Safety
+экология|ecology|Nature
+экономить|save money / economize|Verbs
+экскурсия|excursion / guided tour|Travel
+электричество|electricity|Home
+электронный|electronic|Tech
+этаж|floor|Home
+эффект|effect|Basic
+юбилей|anniversary|Time
+юбка|skirt|Clothes
+юг|south|Directions
+юрист|lawyer|People
+яблоня|apple tree|Nature
+яркий|bright|Adjectives
+ясно|clear / clearly|Weather
+ящик|drawer / box|Home
+автограф|autograph|Media
+автоплатеж|auto payment|Money
+агрессивный|aggressive|Adjectives
+аккуратный|neat / careful|Adjectives
+аллергия|allergy|Health
+алмаз|diamond|Shopping
+английский|English|Study
+аплодисменты|applause|Media
+аргумент|argument|Communication
+арендатор|tenant|Home
+архитектор|architect|Work
+ассистент|assistant|Work
+атмосфера|atmosphere|Nature
+багажная лента|baggage belt|Travel
+баланс|balance|Money
+банкомат|ATM|Money
+бариста|barista|Work
+бассейн|swimming pool|Hobby
+бегать|run|Verbs
+бедро|hip / thigh|Body
+безлимитный|unlimited|Services
+белок|protein|Food
+беременность|pregnancy|Health
+беспроводной|wireless|Tech
+бешеный|furious / rabid|Adjectives
+бинт|bandage|Health
+биография|biography|Study
+бланк|blank form|Documents
+блестящий|shiny / brilliant|Adjectives
+блокировка|lock / blocking|Tech
+боец|fighter|People
+бокал|wine glass|Kitchen
+болезненный|painful|Health
+болтать|chat|Verbs
+борода|beard|Body
+борщ|borscht|Food
+боулинг|bowling|Hobby
+браслет|bracelet|Clothes
+бровь|eyebrow|Body
+брюки|pants / trousers|Clothes
+букет|bouquet|Nature
+булавка|pin|Clothes
+булка|bun|Food
+бумажник|wallet|Money
+буря|storm|Weather
+бухгалтер|accountant|Work
+вафля|waffle|Food
+вдох|inhale / breath in|Health
+великий|great|Adjectives
+веревка|rope|Home
+вернуть|return|Verbs
+весы|scales|Shopping
+ветеринар|vet|Health
+взгляд|look / glance|Communication
+взнос|fee / contribution|Money
+видеозвонок|video call|Communication
+видеокарта|graphics card|Tech
+визит|visit|Daily Life
+включение|turning on|Tech
+власть|power / authority|Society
+вкусно|tasty / delicious|Food
+владелица|female owner|People
+внук|grandson|People
+внучка|granddaughter|People
+водитель|driver|Travel
+водопад|waterfall|Nature
+возврат|return / refund|Shopping
+возвращаться|come back / return|Verbs
+возражать|object / disagree|Verbs
+война|war|Society
+вокруг|around|Directions
+волейбол|volleyball|Hobby
+волшебство|magic|Media
+воспитывать|raise / bring up|Verbs
+впечатление|impression|Feelings
+вред|harm|Health
+всегда|always|Time
+вспоминать|remember / recall|Verbs
+вторник|Tuesday|Time
+входить|enter|Verbs
+вывести|withdraw / output|Verbs
+вывеска|signboard|City
+выговор|reprimand / pronunciation|Work
+выделить|select / highlight|Verbs
+вызов|call / challenge|Communication
+выйти|go out / exit|Verbs
+выключатель|switch|Home
+вылет|departure|Travel
+выпечка|bakery products|Food
+выписка|statement / discharge note|Documents
+выпрямить|straighten|Verbs
+выставка|exhibition|Media
+выступление|performance / speech|Media
+выучить|learn / memorize|Verbs
+выяснить|find out / clarify|Verbs
+гарантия|warranty|Shopping
+гарнир|side dish|Food
+гвоздика|carnation / clove|Nature
+география|geography|Study
+гибкий|flexible|Adjectives
+гигиена|hygiene|Health
+глина|clay|Nature
+глоток|sip|Food
+гнаться|chase|Verbs
+гол|goal|Hobby
+голень|shin|Body
+голубой|light blue|Adjectives
+гордиться|be proud|Verbs
+горечь|bitterness|Food
+горка|slide / hill|City
+грамм|gram|Food
+грамматика|grammar|Study
+грант|grant|Study
+графин|carafe|Kitchen
+гребень|comb / ridge|Home
+грелка|heating pad|Health
+громкость|volume|Tech
+груша|pear|Food
+грядка|garden bed|Nature
+губка|sponge|Home
+гулять пешком|walk around|Phrases
+давно|long ago / for a long time|Time
+дача|country house|Home
+дважды|twice|Basic
+дворник|janitor / windshield wiper|Work
+двухместный|double / for two|Travel
+декларация|declaration|Documents
+дело|matter / business|Basic
+депозит|deposit|Money
+держатель|holder|Home
+дефицит|shortage|Society
+джинсы|jeans|Clothes
+диалог|dialogue|Study
+дикий|wild|Adjectives
+диплом|diploma|Study
+дисплей|display|Tech
+добавка|extra portion / supplement|Food
+добраться|get to|Verbs
+доказательство|proof|Study
+доклад|report|Study
+долина|valley|Nature
+дополнительно|additionally|Basic
+дорогой|expensive / dear|Adjectives
+доска|board|Study
+достаточно|enough|Basic
+доступ|access|Tech
+драгоценный|precious|Adjectives
+дрова|firewood|Home
+дружелюбный|friendly|Adjectives
+дубликат|duplicate|Documents
+дуть|blow|Verbs
+душный|stuffy|Weather
+еж|hedgehog|Animals
+еле|barely|Basic
+жалко|it is a pity|Feelings
+жара|heat|Weather
+железо|iron / hardware|Tech
+жест|gesture|Communication
+жесткий|hard / strict|Adjectives
+жетон|token|Travel
+жилет|vest|Clothes
+жилье|housing|Home
+жираф|giraffe|Animals
+забавный|funny / amusing|Adjectives
+забор|fence|Home
+завал|pile / overload|Work
+заварить|brew|Verbs
+завершить|finish / complete|Verbs
+завод|factory|Work
+загар|tan|Health
+заграница|abroad|Travel
+загрузить|upload / load|Verbs
+задержка|delay|Travel
+зажечь|light / ignite|Verbs
+заказать столик|book a table|Phrases
+закладка|bookmark|Tech
+заключение|conclusion / report|Documents
+закон|law|Society
+закуска|snack / appetizer|Food
+замедлить|slow down|Verbs
+замок|lock / castle|Home
+запас|supply / stock|Home
+запекать|bake|Verbs
+заполнить|fill in|Verbs
+заправить|refuel / tuck in|Verbs
+зарядить|charge|Verbs
+заслужить|deserve|Verbs
+застрять|get stuck|Verbs
+затылок|back of the head|Body
+заходить|come in / drop by|Verbs
+зачет|pass-fail exam|Study
+заявка|request / application|Documents
+звонок|call / bell|Communication
+земля|earth / ground|Nature
+злой взгляд|angry look|Phrases
+зритель|viewer / spectator|Media
+зубная паста|toothpaste|Health
+зубная щетка|toothbrush|Health
+игрок|player|Hobby
+изба|hut|Home
+извиняться|apologize|Verbs
+издательство|publishing house|Media
+измерить|measure|Verbs
+изменение|change|Basic
+изображение|image|Media
+изобретение|invention|Tech
+изюм|raisins|Food
+икра|caviar|Food
+именно|exactly|Basic
+инвалидность|disability|Health
+инвестиция|investment|Money
+инженер|engineer|Work
+иногда вечером|sometimes in the evening|Phrases
+интервью|interview|Media
+искра|spark|Nature
+искусство|art|Media
+использовать|use|Verbs
+исправить|fix / correct|Verbs
+исследование|research|Study
+истина|truth|Communication
+история|history / story|Study
+исчезнуть|disappear|Verbs
+каблук|heel|Clothes
+какао|cocoa|Food
+календарь|calendar|Time
+камин|fireplace|Home
+капуста|cabbage|Food
+караоке|karaoke|Hobby
+карандаш|pencil|Study
+карьера|career|Work
+кассир|cashier|Shopping
+каталог|catalog|Shopping
+качество|quality|Shopping
+квадрат|square|Study
+кивать|nod|Verbs
+километр|kilometer|Travel
+кирпич|brick|Home
+кислород|oxygen|Health
+классика|classic music / classics|Media
+клеить|glue / stick|Verbs
+клей|glue|Study
+клетка|cage / cell|Animals
+климат|climate|Weather
+клубника|strawberry|Food
+ковер|carpet|Home
+код|code|Tech
+козел|goat|Animals
+коктейль|cocktail|Food
+колесо|wheel|Travel
+количество|amount / quantity|Basic
+коллекция|collection|Hobby
+кольцо|ring|Clothes
+комбинезон|overalls|Clothes
+комиссия|fee / commission|Money
+компьютер|computer|Tech
+конвертация|conversion|Money
+кондиция|condition / fitness|Health
+конкурент|competitor|Work
+конструктор|constructor / building set|Hobby
+контроль|control / check|Work
+конференция|conference|Work
+корень|root|Study
+корпус|building / case|Tech
+косметика|cosmetics|Shopping
+космос|space|Nature
+котлета|cutlet / patty|Food
+кофта|sweatshirt / cardigan|Clothes
+краска|paint|Home
+красный|red|Adjectives
+крепкий|strong|Adjectives
+кровать рядом|bed nearby|Phrases
+крошка|crumb|Food
+круглый|round|Adjectives
+крупный|large / major|Adjectives
+крышка|lid|Kitchen
+кукла|doll|Hobby
+культура|culture|Study
+купальник|swimsuit|Clothes
+купюра|banknote|Money
+курс|course / exchange rate|Study
+кусать|bite|Verbs
+лавка|small shop / bench|City
+ладонь|palm|Body
+лазер|laser|Tech
+лапа|paw|Animals
+ласковый|affectionate|Adjectives
+латынина|Latin script|Study
+легендарный|legendary|Adjectives
+лед|ice|Weather
+лезть|climb / get into|Verbs
+ленивый|lazy|Adjectives
+лепешка|flatbread|Food
+лес|forest|Nature
+лечение|treatment|Health
+ливень|downpour|Weather
+лимонад|lemonade|Food
+лиса|fox|Animals
+лифт вниз|elevator down|Phrases
+лицензия|license|Documents
+ловушка|trap|Safety
+логика|logic|Study
+локоть|elbow|Body
+ломтик|slice|Food
+лопата|shovel|Home
+лось|moose|Animals
+лоток|tray|Home
+луна|moon|Nature
+лучший|best|Adjectives
+лысый|bald|Adjectives
+любовь|love|Feelings
+магнит|magnet|Home
+мазь|ointment|Health
+майонез|mayonnaise|Food
+макет|layout / mockup|Work
+малина|raspberry|Food
+малыш|baby / toddler|People
+марафон|marathon|Hobby
+март|March|Time
+маршрутка|minibus|Travel
+масштаб|scale|Work
+мастер|master / repairman|Work
+математика|math|Study
+медведь|bear|Animals
+медовый|honey|Adjectives
+между|between|Directions
+мелодия|melody|Media
+местный|local|Adjectives
+металл|metal|Home
+метод|method|Study
+мечтать|dream|Verbs
+микроволновка|microwave|Kitchen
+микрофон|microphone|Tech
+миллион|million|Basic
+минимум|minimum|Basic
+миска|bowl|Kitchen
+младший|younger / junior|Adjectives
+мнение друга|friend's opinion|Phrases
+молния на куртке|jacket zipper|Phrases
+момент|moment|Time
+монитор|monitor|Tech
+мороз|frost|Weather
+моряк|sailor|People
+мотоцикл|motorcycle|Travel
+мудрый|wise|Adjectives
+мука|flour|Food
+мультфильм|cartoon|Media
+мусорное ведро|trash can|American English
+муха|fly|Animals
+мышь|mouse|Animals
+мэрия|city hall|City
+мяч|ball|Hobby
+на берегу|on the shore|Phrases
+на входе|at the entrance|Phrases
+на выходе|at the exit|Phrases
+на карте|on the map|Phrases
+на месте|in place / on site|Phrases
+на остановке|at the bus stop|Phrases
+на полке|on the shelf|Phrases
+на связи|in touch|Phrases
+на улице|outside / in the street|Phrases
+на экране|on the screen|Phrases
+набрать номер|dial a number|Phrases
+надеть|put on|Verbs
+нажать кнопку|press the button|Phrases
+называть|call / name|Verbs
+накрыть|cover / set the table|Verbs
+налево|to the left|Directions
+намного|much / a lot|Basic
+напечатать|type / print|Verbs
+напиток|drink|Food
+направо|to the right|Directions
+нарезать|slice / cut up|Verbs
+народ|people / nation|Society
+наряд|outfit|Clothes
+насекомое|insect|Animals
+настоящий|real / present|Adjectives
+настроить|configure / tune|Verbs
+насыпать|pour / add dry food|Verbs
+натереть|grate / rub|Verbs
+находиться|be located|Verbs
+начало урока|beginning of the lesson|Phrases
+не работает|does not work|Phrases
+не согласен|I disagree|Phrases
+не хватает|not enough / missing|Phrases
+недалеко|not far|Directions
+недостаток|drawback / shortage|Basic
+независимый|independent|Adjectives
+неизвестный|unknown|Adjectives
+некуда|nowhere to go|Basic
+немного позже|a little later|Phrases
+неожиданно|unexpectedly|Basic
+неправильный|wrong / irregular|Adjectives
+неприятный|unpleasant|Adjectives
+нефть|oil|Nature
+нижний|lower|Adjectives
+ниже|lower / below|Directions
+ничего страшного|no big deal|Phrases
+новая вкладка|new tab|Tech
+новая встреча|new meeting|Phrases
+новый пароль|new password|Tech
+ноль|zero|Basic
+норма|norm / standard|Basic
+носок|sock|Clothes
+ночной|night / nightly|Adjectives
+ноябрьский|November|Adjectives
+нравиться|like|Verbs
+нырять|dive|Verbs
+обеденный перерыв|lunch break|Work
+обидеться|get offended|Verbs
+обложка|cover|Media
+обменять|exchange|Verbs
+обойти|go around / bypass|Verbs
+оборудование|equipment|Tech
+обратная связь|feedback|Communication
+обратный|return / reverse|Adjectives
+обувной магазин|shoe store|Shopping
+объявление|announcement / ad|Media
+обычный|usual / regular|Adjectives
+обязанность|duty / responsibility|Work
+ограничение|limit / restriction|Basic
+одолжить|lend / borrow|Verbs
+ожог|burn|Health
+означать|mean|Verbs
+оказаться|turn out|Verbs
+окончание|ending / finish|Study
+окружение|environment / surroundings|Society
+омлет|omelet|Food
+онлайн заказ|online order|Shopping
+опаздывать|be late|Verbs
+операция|operation / transaction|Health
+опечатка|typo|Study
+описывать|describe|Verbs
+определить|define / determine|Verbs
+опция|option|Tech
+орел|eagle|Animals
+остановка рядом|nearby stop|Phrases
+остаться|stay / remain|Verbs
+осторожно|carefully / watch out|Safety
+острый|sharp / spicy|Adjectives
+от двери|from the door|Phrases
+от дома|from home|Phrases
+отель|hotel|Travel
+отключить|disconnect / turn off|Verbs
+открытка|postcard|Communication
+отправитель|sender|Communication
+отправить|send|Verbs
+отчет|report|Work
+оформить|arrange / complete|Verbs
+охлаждать|cool|Verbs
+очистить|clean / clear|Verbs
+падать|fall|Verbs
+пальма|palm tree|Nature
+папка|folder|Tech
+параграф|paragraph|Study
+параметр|parameter / setting|Tech
+пассажирское место|passenger seat|Travel
+пачка|pack|Shopping
+певец|singer|People
+педаль|pedal|Travel
+пекарня|bakery|City
+перевести|translate / transfer|Verbs
+перевод|translation / transfer|Study
+переговоры|negotiations|Work
+переехать|move to another place|Verbs
+перекресток|intersection|City
+перелет|flight|Travel
+перемена|break / change|Study
+перенести|move / reschedule|Verbs
+перерыв|break|Work
+пересадка|transfer|Travel
+перчатки|gloves|Clothes
+песня|song|Media
+песок|sand|Nature
+петля|loop / hinge|Home
+печатать|type / print|Verbs
+пешеходный переход|crosswalk|City
+пирог|pie|Food
+плавать|swim|Verbs
+платформа|platform|Travel
+плед|throw blanket|Home
+племянник|nephew|People
+племянница|niece|People
+пленка|film / plastic wrap|Home
+плотный|dense / filling|Adjectives
+площадь|square / area|City
+победа|victory|Hobby
+повар|cook / chef|Work
+повернуть|turn|Verbs
+повторить|repeat|Verbs
+погасить|turn off / repay|Verbs
+погулять|take a walk|Verbs
+под водой|under water|Phrases
+под окном|under the window|Phrases
+подать заявку|submit an application|Phrases
+подготовить|prepare|Verbs
+поднять|lift / raise|Verbs
+подписать|sign|Verbs
+подтвердить|confirm|Verbs
+подходить|fit / come up|Verbs
+позволить|allow|Verbs
+показывать|show|Verbs
+покой|peace / quiet|Feelings
+полет|flight|Travel
+полицейский|police officer|Safety
+полный|full / complete|Adjectives
+полотенце|towel|Home
+получатель|recipient|Communication
+получить|get / receive|Verbs
+помогать|help|Verbs
+помощь|help|Services
+понадобиться|be needed|Verbs
+понимать|understand|Verbs
+понравиться|like / be liked|Verbs
+попасть|get into / hit|Verbs
+популярный|popular|Adjectives
+посадка|boarding / landing|Travel
+посередине|in the middle|Directions
+послать|send|Verbs
+посмотреть позже|watch later|Phrases
+поставить|put / set|Verbs
+постоянный|constant / regular|Adjectives
+построить|build|Verbs
+посуда|dishes|Kitchen
+посылать|send|Verbs
+потерять|lose|Verbs
+поток|stream / flow|Tech
+похож на|looks like|Phrases
+починить|repair / fix|Verbs
+почта|mail / post office|Communication
+почтовый ящик|mailbox|Home
+появиться|appear|Verbs
+пояс|belt / waist|Clothes
+пояснить|clarify|Verbs
+практика|practice|Study
+предел|limit|Basic
+предлагать|offer / suggest|Verbs
+предпочитать|prefer|Verbs
+представить|introduce / present|Verbs
+предупредить|warn|Verbs
+прежде|before / previously|Time
+прекрасный|wonderful|Adjectives
+препарат|medicine / drug|Health
+пресс|abs / press|Body
+привезти|bring by transport|Verbs
+прививка|vaccination|Health
+привыкать|get used to|Verbs
+придумать|come up with|Verbs
+приезд|arrival|Travel
+прием|appointment / reception|Health
+приз|prize|Hobby
+приложить|attach / apply|Verbs
+примерка|fitting|Shopping
+принять|accept / take|Verbs
+прислать|send|Verbs
+пристань|pier|Travel
+приятный|pleasant|Adjectives
+провести|spend / conduct|Verbs
+провод|wire|Tech
+прогноз|forecast|Weather
+прогресс|progress|Study
+прогулка|walk|Daily Life
+продажа|sale|Shopping
+проживание|accommodation|Travel
+прозрачный|transparent|Adjectives
+проиграть|lose / play through|Verbs
+проезд|fare / passage|Travel
+прокрутить|scroll|Verbs
+промыть|rinse|Verbs
+проснуться|wake up|Verbs
+просторный|spacious|Adjectives
+просьба|request|Communication
+профиль|profile|Tech
+прохладный|cool|Weather
+прыгать|jump|Verbs
+прятать|hide|Verbs
+пуговица|button|Clothes
+пункт|point / item|Basic
+пыль|dust|Home
+пыльца|pollen|Nature
+пятно|spot / stain|Home
+рабочий стол|desktop / desk|Tech
+радио|radio|Media
+раз в неделю|once a week|Phrases
+раз в месяц|once a month|Phrases
+раздражать|annoy|Verbs
+разморозить|defrost|Verbs
+разный|different|Adjectives
+разобрать|take apart / sort out|Verbs
+разогреть|heat up|Verbs
+разрешить доступ|allow access|Tech
+расположение|location|Directions
+расслабиться|relax|Verbs
+растянуть|stretch|Verbs
+раунд|round|Hobby
+реже|less often|Time
+резюме|resume / CV|Work
+ремонтировать|repair|Verbs
+ресница|eyelash|Body
+ресторан рядом|nearby restaurant|Phrases
+родина|homeland|Society
+розетка|power outlet|Home
+розовый|pink|Adjectives
+рукав|sleeve|Clothes
+руль|steering wheel|Travel
+рыбак|fisherman|People
+рычаг|lever|Tech
+рюкзак|backpack|Travel
+с собой|to go / with me|Phrases
+с удовольствием|with pleasure|Phrases
+салфетка|napkin|Kitchen
+самый важный|the most important|Phrases
+сантехник|plumber|Services
+сахарница|sugar bowl|Kitchen
+сбежать|run away|Verbs
+сбор|collection / fee|Money
+светофор|traffic light|City
+сдавать|rent out / hand in|Verbs
+сделать заказ|place an order|Phrases
+секретарь|secretary|Work
+семинар|seminar|Study
+сервер|server|Tech
+сертификат|certificate|Documents
+сесть|sit down / get on|Verbs
+сжать|compress / squeeze|Verbs
+сзади|behind / at the back|Directions
+скачивать|download|Verbs
+сквозь|through|Directions
+сковорода|frying pan|Kitchen
+скорее всего|most likely|Phrases
+скриншот|screenshot|Tech
+скрыть|hide|Verbs
+следить|follow / monitor|Verbs
+слегка|slightly|Basic
+служба|service / department|Services
+сначала|at first / first|Time
+снять квартиру|rent an apartment|Phrases
+собеседник|conversation partner|Communication
+собственный|own|Adjectives
+совпадение|coincidence / match|Basic
+соглашение|agreement|Documents
+соглашаться|agree|Verbs
+содержимое|contents|Tech
+сожалеть|regret|Verbs
+сократить|shorten / reduce|Verbs
+солнечный|sunny|Weather
+сомнение|doubt|Feelings
+сообщить|inform / report|Verbs
+соревнование|competition|Hobby
+сортировка|sorting|Tech
+составить|make / compose|Verbs
+сохранение|saving|Tech
+спасибо большое|thank you very much|Phrases
+спешить|hurry|Verbs
+спина|back|Body
+спокойно|calmly|Basic
+спорить|argue|Verbs
+способ|way / method|Study
+справочник|reference book|Study
+спросить дорогу|ask for directions|Phrases
+сравнение|comparison|Study
+сразу|right away|Time
+средство|tool / product|Basic
+срок годности|expiration date|Shopping
+ставить|put / place / set|Verbs
+стадион|stadium|Hobby
+стандарт|standard|Work
+стараться|try / make an effort|Verbs
+статус|status|Tech
+стекло|glass|Home
+стиль|style|Media
+стоматолог|dentist|Health
+сторона|side|Basic
+страховать|insure|Verbs
+строгий|strict|Adjectives
+структура|structure|Study
+стыдно|ashamed|Feelings
+сумасшедший|crazy|Adjectives
+супермаркет|supermarket|Shopping
+счетчик|counter / meter|Home
+съесть|eat up|Verbs
+тайна|mystery / secret|Media
+талант|talent|People
+таможня|customs|Travel
+танцевать|dance|Verbs
+тариф|rate / plan|Money
+твердый|solid / hard|Adjectives
+творческий|creative|Adjectives
+температура воздуха|air temperature|Weather
+терпеливый|patient|Adjectives
+терпеть|endure / tolerate|Verbs
+тетя|aunt|People
+технология|technology|Tech
+тихий|quiet|Adjectives
+ткань|fabric|Clothes
+товарищ|comrade / buddy|People
+толстый|thick / fat|Adjectives
+тонкий|thin|Adjectives
+топливо|fuel|Travel
+торт|cake|Food
+точно вовремя|exactly on time|Phrases
+травма|injury|Health
+трамвай|tram|Travel
+тренироваться|train / work out|Verbs
+треск|crackling sound|Media
+тропинка|path / trail|Nature
+труд|labor / work|Work
+туалет|toilet / restroom|Home
+туман|fog|Weather
+тумбочка|nightstand|Home
+тут|here|Basic
+тушить|stew / put out|Verbs
+тысяча|thousand|Basic
+тянуть|pull / stretch|Verbs
+убеждать|convince|Verbs
+убрать со стола|clear the table|Phrases
+увидимся позже|see you later|Phrases
+увлечение|hobby / interest|Hobby
+уголь|coal|Nature
+удаленная работа|remote work|Work
+удар|hit / blow|Safety
+удивление|surprise|Feelings
+удостоверение|ID card|Documents
+уехать|leave by transport|Verbs
+ужинать|have dinner|Verbs
+узор|pattern|Clothes
+украшение|decoration / jewelry|Clothes
+улыбнуться|smile|Verbs
+уменьшить|reduce / shrink|Verbs
+умный дом|smart home|Tech
+универсальный|universal|Adjectives
+упасть на пол|fall on the floor|Phrases
+упражнение|exercise|Study
+уронить|drop|Verbs
+успешный|successful|Adjectives
+устроить|arrange / organize|Verbs
+утка|duck|Animals
+уточнить|clarify|Verbs
+уходить|leave|Verbs
+участник|participant|People
+фабрика|factory|Work
+фасоль|beans|Food
+фестиваль|festival|Hobby
+фильтр|filter|Tech
+финал|final|Hobby
+финансы|finance|Money
+флаг|flag|Society
+флейта|flute|Hobby
+фокус|focus / trick|Study
+фонтан|fountain|City
+фотография|photograph|Media
+футболка|T-shirt|Clothes
+хватать|grab / be enough|Verbs
+химия|chemistry|Study
+хирург|surgeon|Health
+хлопок|cotton / clap|Clothes
+ходьба|walking|Health
+хозяин|owner / host|People
+хорошая идея|good idea|Phrases
+хотя|although|Basic
+хранение|storage|Tech
+худой|thin / skinny|Adjectives
+худший|worst|Adjectives
+цельный|solid / whole|Adjectives
+цена билета|ticket price|Travel
+ценник|price tag|Shopping
+центральный|central|Adjectives
+церковь|church|City
+цифровой|digital|Tech
+чайник|kettle|Kitchen
+часы|clock / watch|Time
+чек|receipt|Shopping
+чемпионат|championship|Hobby
+чердак|attic|Home
+череда|series|Basic
+через дорогу|across the road|Phrases
+чернила|ink|Study
+чеснок|garlic|Food
+честно говоря|honestly speaking|Phrases
+чистить|clean / brush|Verbs
+читать вслух|read aloud|Phrases
+член семьи|family member|People
+чувствовать|feel|Verbs
+шампунь|shampoo|Home
+шерсть|wool / fur|Animals
+ширина|width|Basic
+широкий|wide|Adjectives
+школьник|school student|Study
+шнур|cord|Tech
+шорты|shorts|Clothes
+штаны|pants|Clothes
+штора|curtain|Home
+шумный|noisy|Adjectives
+щенок|puppy|Animals
+щипцы|tongs|Kitchen
+щука|pike|Animals
+экзаменационный билет|exam card|Study
+экран телефона|phone screen|Tech
+экстренный|emergency|Safety
+электронная почта|email|Communication
+энергия|energy|Health
+эпизод|episode|Media
+эскиз|sketch|Study
+юмор|humor|Communication
+юность|youth|People
+юридический|legal|Society
+ярмарка|fair|Shopping
+ясный день|clear day|Weather
+ящерица|lizard|Animals
+яйцо|egg|Food
+абзац|paragraph|Study
+абонент|subscriber|Services
+августовский|August|Adjectives
+автоответчик|voicemail|Communication
+автосервис|car repair shop|Services
+активировать|activate|Verbs
+аллея парка|park alley|Phrases
+аппаратная часть|hardware|Tech
+арендная плата|rent payment|Money
+бабочка|butterfly|Animals
+багажное отделение|luggage compartment|Travel
+базовый уровень|basic level|Study
+банковская карта|bank card|Money
+без сахара|without sugar|Phrases
+безопасный пароль|safe password|Tech
+бесплатная доставка|free delivery|Shopping
+билет туда|one-way ticket|Travel
+болит голова|my head hurts|Phrases
+большая скидка|big discount|Shopping
+бронирование отеля|hotel booking|Travel
+быстрая помощь|quick help|Services
+важная встреча|important meeting|Work
+ввести пароль|enter a password|Phrases
+вежливый ответ|polite answer|Communication
+верхняя полка|upper shelf|Home
+вечерняя прогулка|evening walk|Phrases
+включить звук|turn on sound|Tech
+вкусный завтрак|tasty breakfast|Food
+влажная салфетка|wet wipe|Home
+внешний вид|appearance|Basic
+внутренний двор|inner yard|Home
+возле дома|near the house|Phrases
+воскресное утро|Sunday morning|Time
+входной билет|entrance ticket|Travel
+выбрать размер|choose a size|Shopping
+выгодная цена|good price|Shopping
+выключить свет|turn off the light|Phrases
+высокая скорость|high speed|Tech
+горячий чай|hot tea|Food
+готовый ответ|ready answer|Communication
+дальняя дорога|long road|Travel
+дверной замок|door lock|Home
+деловая встреча|business meeting|Work
+дешевый билет|cheap ticket|Travel
+длинная очередь|long line|American English
+добавить файл|add a file|Tech
+домашняя работа|homework|Study
+дорожная сумка|travel bag|Travel
+дружелюбный сосед|friendly neighbor|People
+ежедневная практика|daily practice|Study
+железнодорожный вокзал|railway station|Travel
+женская куртка|women's jacket|Clothes
+забронировать номер|book a room|Travel
+загрузить фото|upload a photo|Tech
+закрытая дверь|closed door|Home
+заменить батарейку|replace the battery|Tech
+заполнить форму|fill out a form|Documents
+зеленый свет|green light|City
+зимняя одежда|winter clothes|Clothes
+интересная статья|interesting article|Media
+исправить ошибку|fix a mistake|Study
+каждую неделю|every week|Time
+карманные деньги|pocket money|Money
+качественный товар|quality product|Shopping
+классная комната|classroom|Study
+клиентская поддержка|customer support|Services
+книжная полка|bookshelf|Home
+    `),
   ].map((entry) => ({
     ru: entry[0],
     en: entry[1],
@@ -1464,6 +3273,8 @@
       dailyXp: 0,
       streak: 1,
       lastDate: getToday(),
+      savedWordKeys: [],
+      knownWordKeys: [],
     };
 
     try {
@@ -1481,6 +3292,10 @@
         merged.lastDate = today;
       }
 
+      merged.savedWordKeys = normalizeStoredWordKeys(merged.savedWordKeys);
+      merged.knownWordKeys = normalizeStoredWordKeys(merged.knownWordKeys);
+      merged.savedWordKeys = merged.savedWordKeys.filter((key) => !merged.knownWordKeys.includes(key));
+
       return merged;
     } catch (error) {
       return base;
@@ -1493,6 +3308,65 @@
     } catch (error) {
       return;
     }
+  }
+
+  function normalizeStoredWordKeys(values) {
+    const source = Array.isArray(values) ? values : [];
+    return Array.from(new Set(source.map((value) => normalize(value)).filter((key) => key && dictionaryByRu[key])));
+  }
+
+  function sortDictionaryEntries(entries) {
+    return entries.slice().sort((left, right) => {
+      const byRu = left.ru.localeCompare(right.ru, 'ru');
+      return byRu !== 0 ? byRu : left.en.localeCompare(right.en, 'en');
+    });
+  }
+
+  function getDictionaryEntryByKey(wordKey) {
+    return dictionaryByRu[normalize(wordKey)] || null;
+  }
+
+  function getSavedDictionaryEntries() {
+    return sortDictionaryEntries(state.progress.savedWordKeys.map((key) => getDictionaryEntryByKey(key)).filter(Boolean));
+  }
+
+  function saveWordForStudy(wordKey) {
+    const entry = getDictionaryEntryByKey(wordKey);
+    if (!entry) {
+      return;
+    }
+
+    const key = normalize(entry.ru);
+    state.progress.knownWordKeys = state.progress.knownWordKeys.filter((knownKey) => knownKey !== key);
+    if (!state.progress.savedWordKeys.includes(key)) {
+      state.progress.savedWordKeys = state.progress.savedWordKeys.concat(key);
+    }
+    saveProgress();
+  }
+
+  function removeWordFromStudy(wordKey) {
+    const key = normalize(wordKey);
+    state.progress.savedWordKeys = state.progress.savedWordKeys.filter((savedKey) => savedKey !== key);
+    saveProgress();
+  }
+
+  function markWordAsKnown(wordKey) {
+    const entry = getDictionaryEntryByKey(wordKey);
+    if (!entry) {
+      return;
+    }
+
+    const key = normalize(entry.ru);
+    state.progress.savedWordKeys = state.progress.savedWordKeys.filter((savedKey) => savedKey !== key);
+    if (!state.progress.knownWordKeys.includes(key)) {
+      state.progress.knownWordKeys = state.progress.knownWordKeys.concat(key);
+    }
+    saveProgress();
+  }
+
+  function restoreKnownWords() {
+    state.progress.knownWordKeys = [];
+    saveProgress();
   }
 
   function getRussianLetter(value) {
@@ -1599,9 +3473,14 @@
 
   function getFilteredDictionaryEntries() {
     const query = normalize(state.dictionaryQuery);
+    const knownWordKeys = new Set(state.progress.knownWordKeys);
 
-    return dictionaryEntries
-      .filter((entry) => {
+    return sortDictionaryEntries(
+      dictionaryEntries.filter((entry) => {
+        if (knownWordKeys.has(normalize(entry.ru))) {
+          return false;
+        }
+
         if (state.dictionaryLetter !== 'all' && getRussianLetter(entry.ru) !== state.dictionaryLetter) {
           return false;
         }
@@ -1615,17 +3494,19 @@
         }
 
         return normalize([entry.ru, entry.en, entry.category, entry.note].join(' ')).includes(query);
-      })
-      .sort((left, right) => {
-        const byRu = left.ru.localeCompare(right.ru, 'ru');
-        return byRu !== 0 ? byRu : left.en.localeCompare(right.en, 'en');
-      });
+      }),
+    );
   }
 
   function getDictionaryLetterCounts() {
     const query = normalize(state.dictionaryQuery);
+    const knownWordKeys = new Set(state.progress.knownWordKeys);
 
     return dictionaryEntries.reduce((accumulator, entry) => {
+      if (knownWordKeys.has(normalize(entry.ru))) {
+        return accumulator;
+      }
+
       if (state.dictionaryCategory !== 'all' && entry.category !== state.dictionaryCategory) {
         return accumulator;
       }
@@ -1701,6 +3582,36 @@
 
   function renderSpeakButton(text, label = 'Listen') {
     return `<button class="speak-btn" type="button" data-speak="${speakAttr(text)}">${label}</button>`;
+  }
+
+  function renderDictionaryWordCard(entry, options = {}) {
+    const wordKey = normalize(entry.ru);
+    const letter = options.letter || getRussianLetter(entry.ru);
+    const isSaved = state.progress.savedWordKeys.includes(wordKey);
+    const saveAction = isSaved ? 'remove-saved-word' : 'save-word';
+    const saveLabel = isSaved ? 'Убрать' : 'Учить';
+    const cardClass = `phrase-card dictionary-word-card ${isSaved ? 'is-saved' : ''}`.trim();
+    const cardStyle = options.featured ? ' style="background:#efffdd;"' : '';
+
+    return `
+      <div class="${cardClass}"${cardStyle}>
+        <div class="button-row" style="margin-bottom:10px;">
+          <span class="chip">${escapeHtml(letter)}</span>
+          <span class="chip sky">${escapeHtml(entry.category)}</span>
+          ${isSaved ? '<span class="chip gold">В изучении</span>' : ''}
+        </div>
+        <div class="example-head">
+          <p class="example-en">${escapeHtml(entry.ru)}</p>
+          ${renderSpeakButton(entry.en, 'Play')}
+        </div>
+        <p class="translator-output" style="font-size:20px;">${escapeHtml(entry.en)}</p>
+        <p class="small-muted">${escapeHtml(entry.note || 'Базовое слово для everyday American English.')}</p>
+        <div class="word-actions">
+          <button class="word-action ${isSaved ? 'is-saved' : ''}" type="button" data-action="${saveAction}" data-word-key="${escapeHtml(wordKey)}">${saveLabel}</button>
+          <button class="word-action is-known" type="button" data-action="mark-known-word" data-word-key="${escapeHtml(wordKey)}">Уже знаю</button>
+        </div>
+      </div>
+    `;
   }
 
   function renderTable(table) {
@@ -2131,6 +4042,9 @@
     const filteredEntries = getFilteredDictionaryEntries();
     const groupedEntries = groupDictionaryEntries(filteredEntries);
     const letterCounts = getDictionaryLetterCounts();
+    const savedEntries = getSavedDictionaryEntries();
+    const knownWordsCount = state.progress.knownWordKeys.length;
+    const visibleWordsCount = dictionaryEntries.length - knownWordsCount;
     const query = normalize(state.dictionaryQuery);
     const exactMatch = query ? filteredEntries.find((entry) => normalize(entry.ru) === query) : null;
 
@@ -2151,11 +4065,36 @@
               </p>
             </div>
             <div class="note-grid">
-              <div class="note-card lime"><strong>Words</strong><br />${dictionaryEntries.length} популярных слов.</div>
-              <div class="note-card sky"><strong>Search</strong><br />Работает по русскому слову, переводу и теме.</div>
-              <div class="note-card gold"><strong>Audio</strong><br />Play-кнопки работают без сервера через браузер.</div>
+              <div class="note-card lime"><strong>Words</strong><br />${visibleWordsCount} видно из ${dictionaryEntries.length} слов.</div>
+              <div class="note-card sky"><strong>To learn</strong><br />${savedEntries.length} слов сохранено для изучения.</div>
+              <div class="note-card gold"><strong>Known</strong><br />${knownWordsCount} слов скрыто как уже известных.</div>
+              <div class="note-card sky"><strong>Audio</strong><br />Play-кнопки работают без сервера через браузер.</div>
             </div>
           </div>
+        </div>
+
+        <div class="panel study-list-panel">
+          <div class="section-row">
+            <div>
+              <h2 class="section-title">Words to learn</h2>
+              <p class="muted">Нажимай “Учить” на карточках ниже, чтобы собрать свой личный список слов.</p>
+            </div>
+            <span class="chip gold">${savedEntries.length} saved</span>
+          </div>
+
+          ${
+            savedEntries.length
+              ? `
+                <div class="dictionary-card-grid">
+                  ${savedEntries.map((entry) => renderDictionaryWordCard(entry)).join('')}
+                </div>
+              `
+              : `
+                <div class="note-card sky">
+                  Пока список пустой. Найди слово в словаре и нажми “Учить” — оно появится здесь.
+                </div>
+              `
+          }
         </div>
 
         <div class="panel">
@@ -2164,7 +4103,7 @@
               <h2 class="section-title">Find a word</h2>
               <p class="muted">Пиши по-русски и фильтруй по буквам или темам.</p>
             </div>
-            <span class="chip sky">${filteredEntries.length} / ${dictionaryEntries.length}</span>
+            <span class="chip sky">${filteredEntries.length} / ${visibleWordsCount}</span>
           </div>
 
           <input class="search-input translator-input" type="text" autocomplete="off" data-input="dictionary-query" value="${escapeHtml(
@@ -2211,6 +4150,7 @@
 
           <div class="button-row" style="margin-top:16px;">
             <button class="btn btn-secondary" data-action="reset-dictionary">Reset filters</button>
+            ${knownWordsCount ? `<button class="btn btn-ghost" data-action="restore-known-words">Вернуть известные (${knownWordsCount})</button>` : ''}
           </div>
         </div>
 
@@ -2228,18 +4168,7 @@
               ? `
                 <div class="dictionary-featured">
                   <p class="label">Exact match</p>
-                  <div class="phrase-card" style="background:#efffdd;">
-                    <div class="button-row" style="margin-bottom:10px;">
-                      <span class="chip">${getRussianLetter(exactMatch.ru)}</span>
-                      <span class="chip sky">${exactMatch.category}</span>
-                    </div>
-                    <div class="example-head">
-                      <p class="example-en">${exactMatch.ru}</p>
-                      ${renderSpeakButton(exactMatch.en, 'Play')}
-                    </div>
-                    <p class="translator-output">${exactMatch.en}</p>
-                    <p class="small-muted">${exactMatch.note || 'Базовый вариант для everyday American English.'}</p>
-                  </div>
+                  ${renderDictionaryWordCard(exactMatch, { featured: true })}
                 </div>
               `
               : ''
@@ -2259,22 +4188,7 @@
                           </div>
                           <div class="dictionary-card-grid">
                             ${group.entries
-                              .map(
-                                (entry) => `
-                                  <div class="phrase-card">
-                                    <div class="button-row" style="margin-bottom:10px;">
-                                      <span class="chip">${group.letter}</span>
-                                      <span class="chip sky">${entry.category}</span>
-                                    </div>
-                                    <div class="example-head">
-                                      <p class="example-en">${entry.ru}</p>
-                                      ${renderSpeakButton(entry.en, 'Play')}
-                                    </div>
-                                    <p class="translator-output" style="font-size:20px;">${entry.en}</p>
-                                    <p class="small-muted">${entry.note || 'Базовое слово для everyday American English.'}</p>
-                                  </div>
-                                `,
-                              )
+                              .map((entry) => renderDictionaryWordCard(entry, { letter: group.letter }))
                               .join('')}
                           </div>
                         </section>
@@ -2609,6 +4523,30 @@
       state.dictionaryQuery = '';
       state.dictionaryLetter = 'all';
       state.dictionaryCategory = 'all';
+      render();
+      return;
+    }
+
+    if (action === 'save-word') {
+      saveWordForStudy(actionTarget.getAttribute('data-word-key'));
+      render();
+      return;
+    }
+
+    if (action === 'remove-saved-word') {
+      removeWordFromStudy(actionTarget.getAttribute('data-word-key'));
+      render();
+      return;
+    }
+
+    if (action === 'mark-known-word') {
+      markWordAsKnown(actionTarget.getAttribute('data-word-key'));
+      render();
+      return;
+    }
+
+    if (action === 'restore-known-words') {
+      restoreKnownWords();
       render();
       return;
     }
