@@ -1,0 +1,16 @@
+{
+  "name": "Danobius",
+  "short_name": "Danobius",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f3ffe5",
+  "theme_color": "#58CC02",
+  "icons": [
+    {
+      "src": "./danobius-logo.svg",
+      "sizes": "256x256",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}

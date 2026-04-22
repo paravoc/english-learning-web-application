@@ -1,0 +1,20 @@
+<svg width="256" height="256" viewBox="0 0 256 256" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="12" y="12" width="232" height="232" rx="60" fill="url(#paint0_linear_1_2)"/>
+  <circle cx="92" cy="112" r="32" fill="#F8FFF0"/>
+  <circle cx="164" cy="112" r="32" fill="#F8FFF0"/>
+  <circle cx="98" cy="114" r="16" fill="#2A4730"/>
+  <circle cx="158" cy="114" r="16" fill="#2A4730"/>
+  <circle cx="103" cy="109" r="5" fill="white"/>
+  <circle cx="163" cy="109" r="5" fill="white"/>
+  <path d="M127.5 142L148 160H107L127.5 142Z" fill="#FFB703"/>
+  <rect x="76" y="164" width="104" height="40" rx="20" fill="#2A4730"/>
+  <path d="M128 188C141.807 188 153 176.807 153 163H103C103 176.807 114.193 188 128 188Z" fill="#D7FF89"/>
+  <path d="M66 70L104 46L106 88L66 70Z" fill="#D7FF89"/>
+  <path d="M190 70L152 46L150 88L190 70Z" fill="#D7FF89"/>
+  <defs>
+    <linearGradient id="paint0_linear_1_2" x1="28" y1="24" x2="214" y2="230" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7CEB2C"/>
+      <stop offset="1" stop-color="#58CC02"/>
+    </linearGradient>
+  </defs>
+</svg>
