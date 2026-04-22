@@ -3912,6 +3912,7 @@
     dictionaryQuery: '',
     dictionaryLetter: 'all',
     dictionaryCategory: 'all',
+    expandedDictionaryLetters: [],
     lessonAnswer: '',
     lessonChoice: null,
     lessonFeedback: null,
@@ -4206,6 +4207,46 @@
     }, Object.create(null));
   }
 
+  function getDictionaryCategoryCounts() {
+    const query = normalize(state.dictionaryQuery);
+    const knownWordKeys = new Set(state.progress.knownWordKeys);
+    const counts = dictionaryEntries.reduce((accumulator, entry) => {
+      if (knownWordKeys.has(normalize(entry.ru))) {
+        return accumulator;
+      }
+
+      if (state.dictionaryLetter !== 'all' && getRussianLetter(entry.ru) !== state.dictionaryLetter) {
+        return accumulator;
+      }
+
+      if (query && !normalize([entry.ru, entry.en, entry.category, entry.note].join(' ')).includes(query)) {
+        return accumulator;
+      }
+
+      accumulator[entry.category] = (accumulator[entry.category] || 0) + 1;
+      return accumulator;
+    }, Object.create(null));
+
+    return Object.keys(counts)
+      .sort((left, right) => left.localeCompare(right, 'en'))
+      .map((category) => ({
+        category,
+        count: counts[category],
+      }));
+  }
+
+  function isDictionaryLetterExpanded(letter) {
+    return state.expandedDictionaryLetters.includes(letter);
+  }
+
+  function toggleDictionaryLetter(letter) {
+    if (isDictionaryLetterExpanded(letter)) {
+      state.expandedDictionaryLetters = state.expandedDictionaryLetters.filter((item) => item !== letter);
+    } else {
+      state.expandedDictionaryLetters = state.expandedDictionaryLetters.concat(letter);
+    }
+  }
+
   function groupDictionaryEntries(entries) {
     const grouped = Object.create(null);
 
@@ -4299,6 +4340,28 @@
     `;
   }
 
+  function renderDictionaryCategoryCards(categoryCounts) {
+    if (!categoryCounts.length) {
+      return '';
+    }
+
+    return `
+      <div class="dictionary-category-grid">
+        ${categoryCounts
+          .map(
+            (item) => `
+              <button class="dictionary-category-card" type="button" data-dictionary-category="${escapeHtml(item.category)}">
+                <span class="chip sky">${escapeHtml(item.category)}</span>
+                <strong>${item.count}</strong>
+                <span>words</span>
+              </button>
+            `,
+          )
+          .join('')}
+      </div>
+    `;
+  }
+
   function renderTable(table) {
     if (!table) {
       return '';
@@ -4363,6 +4426,7 @@
 
   function renderLane(lane) {
     const laneLessons = lane.lessonIds.map((lessonId) => getLessonById(lessonId)).filter(Boolean);
+    const stickers = ['⭐', '💬', '🎧', '🔥', '📌', '✨', '🧠', '🎯'];
 
     return `
       <section class="lane-card">
@@ -4384,6 +4448,7 @@
 
               return `
                 <div class="skill-row ${index % 2 === 0 ? 'skill-row-left' : 'skill-row-right'}">
+                  ${index > 0 ? `<div class="path-sticker ${index % 2 === 0 ? 'sticker-left' : 'sticker-right'}">${stickers[index % stickers.length]}</div>` : ''}
                   <div class="skill-node ${status}">
                     <button class="skill-orb ${status}" style="--orb-color:${lesson.color};" ${disabled} ${
                 status === 'locked' ? '' : `data-open-lesson="${lesson.id}"`
@@ -4447,7 +4512,7 @@
   function renderDashboard() {
     const nextLesson = getNextLesson();
     const levelInfo = getLevelInfo();
-    const dictionaryPreview = dictionaryEntries.slice(0, 6);
+    const dictionaryPreview = dictionaryEntries.slice(0, 3);
 
     return `
       <main class="page dashboard-grid">
@@ -4552,8 +4617,8 @@
           </div>
         </section>
 
-        <aside class="side-column">
-          <div class="panel">
+        <aside class="side-column dashboard-widgets">
+          <div class="panel dashboard-widget">
             <div class="section-row">
               <div>
                 <h2 class="section-title">Quick access</h2>
@@ -4574,7 +4639,7 @@
             </div>
           </div>
 
-          <div class="panel">
+          <div class="panel dashboard-widget">
             <div class="section-row">
               <div>
                 <h2 class="section-title">Badges</h2>
@@ -4595,7 +4660,7 @@
             </div>
           </div>
 
-          <div class="panel">
+          <div class="panel dashboard-widget dictionary-widget">
             <div class="section-row">
               <div>
                 <h2 class="section-title">Dictionary</h2>
@@ -4603,7 +4668,7 @@
               </div>
               <span class="chip sky">А-Я</span>
             </div>
-            <div class="phrase-list">
+            <div class="phrase-list dashboard-preview-list">
               ${dictionaryPreview
                 .map(
                   (entry) => `
@@ -4782,6 +4847,7 @@
     const filteredEntries = getFilteredDictionaryEntries();
     const groupedEntries = groupDictionaryEntries(filteredEntries);
     const letterCounts = getDictionaryLetterCounts();
+    const categoryCounts = getDictionaryCategoryCounts();
     const savedEntries = getSavedDictionaryEntries();
     const knownWordsCount = state.progress.knownWordKeys.length;
     const visibleWordsCount = dictionaryEntries.length - knownWordsCount;
@@ -4837,11 +4903,22 @@
           }
         </div>
 
+        <div class="panel dictionary-category-panel">
+          <div class="section-row">
+            <div>
+              <h2 class="section-title">Categories</h2>
+              <p class="muted">Сначала выбери тему. Так словарь открывается быстрее и не рисует тысячи карточек сразу.</p>
+            </div>
+            <span class="chip green">${categoryCounts.length} categories</span>
+          </div>
+          ${renderDictionaryCategoryCards(categoryCounts)}
+        </div>
+
         <div class="panel">
           <div class="section-row">
             <div>
               <h2 class="section-title">Find a word</h2>
-              <p class="muted">Пиши по-русски и фильтруй по буквам или темам.</p>
+              <p class="muted">Пиши по-русски, выбирай тему или раскрывай нужную букву ниже.</p>
             </div>
             <span class="chip sky">${filteredEntries.length} / ${visibleWordsCount}</span>
           </div>
@@ -4898,7 +4975,7 @@
           <div class="section-row">
             <div>
               <h2 class="section-title">Results</h2>
-              <p class="muted">Список идет по алфавиту. Можно просто листать как словарь.</p>
+              <p class="muted">Буквы свернуты по умолчанию. Открой только нужную секцию, чтобы страница не тормозила.</p>
             </div>
             <span class="chip green">${groupedEntries.length} sections</span>
           </div>
@@ -4919,21 +4996,31 @@
               ? `
                 <div class="dictionary-groups">
                   ${groupedEntries
-                    .map(
-                      (group) => `
-                        <section class="dictionary-group">
-                          <div class="section-row" style="margin-bottom:0;">
-                            <h3 class="section-title" style="margin:0;">${group.letter}</h3>
-                            <span class="chip">${group.entries.length} words</span>
-                          </div>
-                          <div class="dictionary-card-grid">
-                            ${group.entries
-                              .map((entry) => renderDictionaryWordCard(entry, { letter: group.letter }))
-                              .join('')}
-                          </div>
+                    .map((group) => {
+                      const expanded = isDictionaryLetterExpanded(group.letter);
+
+                      return `
+                        <section class="dictionary-group ${expanded ? 'is-expanded' : 'is-collapsed'}">
+                          <button class="dictionary-group-toggle" type="button" data-action="toggle-dictionary-letter" data-dictionary-group-letter="${group.letter}">
+                            <span class="dictionary-letter">${group.letter}</span>
+                            <span class="dictionary-group-info">
+                              <strong>${group.entries.length} words</strong>
+                              <small>${expanded ? 'Свернуть карточки' : 'Открыть карточки'}</small>
+                            </span>
+                            <span class="dictionary-toggle-mark">${expanded ? '−' : '+'}</span>
+                          </button>
+                          ${
+                            expanded
+                              ? `
+                                <div class="dictionary-card-grid">
+                                  ${group.entries.map((entry) => renderDictionaryWordCard(entry, { letter: group.letter })).join('')}
+                                </div>
+                              `
+                              : ''
+                          }
                         </section>
-                      `,
-                    )
+                      `;
+                    })
                     .join('')}
                 </div>
               `
@@ -5252,6 +5339,7 @@
     const suggestionTarget = event.target.closest('[data-dictionary-suggestion]');
     if (suggestionTarget) {
       state.dictionaryQuery = suggestionTarget.getAttribute('data-dictionary-suggestion');
+      state.expandedDictionaryLetters = [];
       render();
       requestAnimationFrame(() => {
         const input = document.querySelector('[data-input="dictionary-query"]');
@@ -5266,6 +5354,7 @@
     const letterTarget = event.target.closest('[data-dictionary-letter]');
     if (letterTarget) {
       state.dictionaryLetter = letterTarget.getAttribute('data-dictionary-letter');
+      state.expandedDictionaryLetters = state.dictionaryLetter === 'all' ? [] : [state.dictionaryLetter];
       render();
       return;
     }
@@ -5273,6 +5362,7 @@
     const categoryTarget = event.target.closest('[data-dictionary-category]');
     if (categoryTarget) {
       state.dictionaryCategory = categoryTarget.getAttribute('data-dictionary-category');
+      state.expandedDictionaryLetters = [];
       render();
       return;
     }
@@ -5288,12 +5378,19 @@
       state.dictionaryQuery = '';
       state.dictionaryLetter = 'all';
       state.dictionaryCategory = 'all';
+      state.expandedDictionaryLetters = [];
       render();
       return;
     }
 
     if (action === 'toggle-theory') {
       toggleTheoryCard(actionTarget.getAttribute('data-theory-id'));
+      render();
+      return;
+    }
+
+    if (action === 'toggle-dictionary-letter') {
+      toggleDictionaryLetter(actionTarget.getAttribute('data-dictionary-group-letter'));
       render();
       return;
     }
