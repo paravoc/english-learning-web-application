@@ -12,10 +12,22 @@
     <title>Danobius</title>
     <link rel="icon" type="image/svg+xml" href="./public/danobius-logo.svg" />
     <link rel="manifest" href="./public/manifest.webmanifest" />
-    <link rel="stylesheet" href="./styles.css?v=study-words" />
+    <link rel="stylesheet" href="./styles.css?v=better-ui" />
   </head>
-  <body>
+  <body class="is-loading">
+    <div id="loading-screen" class="loading-screen" aria-label="Загрузка Danobius">
+      <div class="loader-card">
+        <div class="loader-orbit">
+          <img class="loader-mascot" src="./public/danobius-mascot.svg" alt="" />
+        </div>
+        <div class="loader-wordmark">danobius</div>
+        <p class="loader-subtitle">loading your English path</p>
+        <div class="loader-progress" aria-hidden="true">
+          <span></span>
+        </div>
+      </div>
+    </div>
     <div id="app"></div>
-    <script src="./app.js?v=study-words"></script>
+    <script src="./app.js?v=better-ui"></script>
   </body>
 </html>

@@ -1147,6 +1147,614 @@
     },
   ];
 
+  const TOPIC_EXTRA_PATTERNS = [
+    ['найти {ru}', 'find {en}'],
+    ['использовать {ru}', 'use {en}'],
+    ['проверить {ru}', 'check {en}'],
+    ['запомнить {ru}', 'remember {en}'],
+    ['повторить {ru}', 'review {en}'],
+    ['обсудить {ru}', 'discuss {en}'],
+    ['спросить про {ru}', 'ask about {en}'],
+    ['прочитать про {ru}', 'read about {en}'],
+    ['написать про {ru}', 'write about {en}'],
+    ['пример с {ru}', 'example with {en}'],
+    ['урок про {ru}', 'lesson about {en}'],
+    ['карточка: {ru}', 'flashcard: {en}'],
+    ['список: {ru}', 'list: {en}'],
+    ['без {ru}', 'without {en}'],
+    ['с {ru}', 'with {en}'],
+    ['для {ru}', 'for {en}'],
+    ['после {ru}', 'after {en}'],
+    ['перед {ru}', 'before {en}'],
+    ['рядом с {ru}', 'near {en}'],
+    ['внутри {ru}', 'inside {en}'],
+    ['новый пример: {ru}', 'new example: {en}'],
+    ['важное слово: {ru}', 'important word: {en}'],
+    ['частая фраза: {ru}', 'common phrase: {en}'],
+    ['быстрый ответ про {ru}', 'quick answer about {en}'],
+    ['простое объяснение: {ru}', 'simple explanation: {en}'],
+    ['короткая заметка: {ru}', 'short note: {en}'],
+    ['ежедневная практика: {ru}', 'daily practice: {en}'],
+    ['разговор про {ru}', 'conversation about {en}'],
+    ['сообщение про {ru}', 'message about {en}'],
+    ['вопрос про {ru}', 'question about {en}'],
+    ['ошибка с {ru}', 'mistake with {en}'],
+    ['решение для {ru}', 'solution for {en}'],
+    ['подсказка про {ru}', 'hint about {en}'],
+    ['мини-тест: {ru}', 'mini test: {en}'],
+    ['повторение слова {ru}', 'reviewing the word {en}'],
+    ['словарная карточка {ru}', 'vocabulary card {en}'],
+    ['понять {ru}', 'understand {en}'],
+    ['объяснить {ru}', 'explain {en}'],
+    ['выбрать {ru}', 'choose {en}'],
+    ['добавить {ru}', 'add {en}'],
+    ['убрать {ru}', 'remove {en}'],
+    ['сохранить {ru}', 'save {en}'],
+    ['открыть тему {ru}', 'open the topic {en}'],
+    ['практиковать {ru}', 'practice {en}'],
+    ['перевести {ru}', 'translate {en}'],
+    ['послушать {ru}', 'listen to {en}'],
+    ['сказать {ru}', 'say {en}'],
+    ['использовать в чате {ru}', 'use {en} in chat'],
+    ['использовать на работе {ru}', 'use {en} at work'],
+    ['использовать каждый день {ru}', 'use {en} every day'],
+  ];
+
+  const thematicLessonSpecs = [
+    {
+      id: 'topic-food-large',
+      unit: 'Topic 1',
+      lane: 'topics',
+      title: 'Food & Cafe 100+',
+      subtitle: 'Большой раздел про еду, кафе, заказ, вкус и покупки продуктов.',
+      icon: '🍽️',
+      color: '#ff7e67',
+      xp: 70,
+      pattern: 'I would like / Can I get / It tastes...',
+      use: 'Для кафе, магазина, доставки еды, рецептов и обычных разговоров о том, что ты ешь.',
+      memory: 'Еда учится быстрее готовыми ситуациями: заказать, попробовать, купить, приготовить, оплатить.',
+      focus: ['Запоминай готовые куски: Can I get..., I would like..., without sugar, to go.', 'Для вкуса нужны слова sweet, sour, spicy, salty, fresh, hot, cold.', 'В кафе часто говорят check, tip, table, order, menu.'],
+      traps: ['Не путай cook и cooker: cook — готовить или повар, cooker — плита/прибор.', 'Chicken может быть курица как еда, а hen — птица.', 'В США счет в ресторане часто называют check.'],
+      notes: ['To go = с собой.', 'Can I get...? звучит естественно при заказе.', 'Refill = долив напитка.'],
+      phrases: [
+        ['заказать {ru}', 'order {en}'],
+        ['попробовать {ru}', 'try {en}'],
+        ['купить {ru}', 'buy {en}'],
+        ['приготовить {ru}', 'cook {en}'],
+        ['добавить {ru}', 'add {en}'],
+        ['без {ru}', 'without {en}'],
+        ['с {ru}', 'with {en}'],
+        ['порция {ru}', 'a portion of {en}'],
+      ],
+      frames: [
+        ['I would like {en}.', 'Я бы хотел {ru}.'],
+        ['Can I get {en}, please?', 'Можно мне {ru}, пожалуйста?'],
+        ['This {en} tastes fresh.', 'Этот вариант с "{ru}" кажется свежим.'],
+        ['We need {en} for dinner.', 'Нам нужен вариант "{ru}" на ужин.'],
+        ['I want to try {en}.', 'Я хочу попробовать {ru}.'],
+      ],
+      rows: `
+хлеб|bread|Food
+масло|butter / oil|Food
+сыр|cheese|Food
+мясо|meat|Food
+курица|chicken|Food
+рыба|fish|Food
+рис|rice|Food
+картофель|potato|Food
+макароны|pasta|Food
+суп|soup|Food
+салат|salad|Food
+овощи|vegetables|Food
+фрукты|fruit|Food
+яблоко|apple|Food
+банан|banana|Food
+апельсин|orange|Food
+лимон|lemon|Food
+клубника|strawberry|Food
+молоко|milk|Food
+кофе|coffee|Food
+чай|tea|Food
+сок|juice|Food
+вода|water|Food
+сахар|sugar|Food
+соль|salt|Food
+перец|pepper|Food
+соус|sauce|Food
+пицца|pizza|Food
+бургер|burger|Food
+завтрак|breakfast|Food
+обед|lunch|Food
+ужин|dinner|Food
+меню|menu|Food
+заказ|order|Food
+чек|check / receipt|Food
+чаевые|tip|Food
+доставка|delivery|Food
+рецепт|recipe|Food
+сковорода|frying pan|Kitchen
+тарелка|plate|Kitchen
+ложка|spoon|Kitchen
+вилка|fork|Kitchen
+нож|knife|Kitchen
+чашка|cup|Kitchen
+стакан|glass|Kitchen
+      `,
+    },
+    {
+      id: 'topic-communication-large',
+      unit: 'Topic 2',
+      lane: 'topics',
+      title: 'Communication',
+      subtitle: 'Большой раздел про разговор, просьбы, вопросы, согласие и вежливость.',
+      icon: '🗣️',
+      color: '#19b5fe',
+      xp: 70,
+      pattern: 'Could you...? / I mean... / What do you think?',
+      use: 'Для живого общения: спросить, объяснить, уточнить, согласиться, отказаться и поддержать разговор.',
+      memory: 'Коммуникация держится на мягких фразах: could, maybe, I think, I mean, let me know.',
+      focus: ['Could you...? мягче, чем Give me.', 'I mean помогает переформулировать мысль.', 'Let me know = дай знать.'],
+      traps: ['Не переводи "я думаю" всегда как I think в начале каждой фразы — иногда лучше maybe или I guess.', 'Say и tell отличаются: say something, tell someone.', 'Ask — спрашивать, а не просить во всех случаях.'],
+      notes: ['Sounds good = звучит хорошо / договорились.', 'No worries = без проблем.', 'I got it = понял.'],
+      phrases: [
+        ['обсудить {ru}', 'discuss {en}'],
+        ['объяснить {ru}', 'explain {en}'],
+        ['уточнить {ru}', 'clarify {en}'],
+        ['ответить на {ru}', 'reply to {en}'],
+        ['спросить про {ru}', 'ask about {en}'],
+        ['согласиться с {ru}', 'agree with {en}'],
+        ['не согласиться с {ru}', 'disagree with {en}'],
+        ['вернуться к {ru}', 'get back to {en}'],
+      ],
+      frames: [
+        ['Could you explain {en}?', 'Ты можешь объяснить {ru}?'],
+        ['Let me know about {en}.', 'Дай знать про {ru}.'],
+        ['I agree with {en}.', 'Я согласен с темой "{ru}".'],
+        ['What do you think about {en}?', 'Что ты думаешь про {ru}?'],
+        ['I need to clarify {en}.', 'Мне нужно уточнить {ru}.'],
+      ],
+      rows: `
+разговор|conversation|Communication
+вопрос|question|Communication
+ответ|answer|Communication
+просьба|request|Communication
+совет|advice|Communication
+мнение|opinion|Communication
+идея|idea|Communication
+объяснение|explanation|Communication
+уточнение|clarification|Communication
+согласие|agreement|Communication
+спор|argument|Communication
+комментарий|comment|Communication
+замечание|remark|Communication
+предложение|suggestion|Communication
+поддержка|support|Communication
+извинение|apology|Communication
+благодарность|thanks|Communication
+приглашение|invitation|Communication
+обещание|promise|Communication
+предупреждение|warning|Communication
+секрет|secret|Communication
+слух|rumor|Communication
+история|story|Communication
+пример|example|Communication
+деталь|detail|Communication
+контекст|context|Communication
+тон|tone|Communication
+голос|voice|Communication
+жест|gesture|Communication
+пауза|pause|Communication
+акцент|accent|Communication
+произношение|pronunciation|Communication
+перевод|translation|Communication
+смысл|meaning|Communication
+тема|topic|Communication
+диалог|dialogue|Communication
+обратная связь|feedback|Communication
+сообщение|message|Communication
+звонок|call|Communication
+видеозвонок|video call|Communication
+контакт|contact|Communication
+      `,
+    },
+    {
+      id: 'topic-chatting-large',
+      unit: 'Topic 3',
+      lane: 'topics',
+      title: 'Chatting & Messages',
+      subtitle: 'Большой раздел про переписку, сообщения, реакции, соцсети и короткие ответы.',
+      icon: '💬',
+      color: '#9956f6',
+      xp: 70,
+      pattern: 'Text me / I’ll send / Did you see...?',
+      use: 'Для чатов, соцсетей, коротких ответов, сообщений, мемов, реакций и договоренностей.',
+      memory: 'В чате важны короткие куски: text me, send it, got it, no worries, sounds good.',
+      focus: ['Text me = напиши мне.', 'DM = direct message.', 'Seen может значить "прочитано".'],
+      traps: ['Message — существительное и глагол, но в разговоре часто говорят text.', 'Не злоупотребляй slang в официальной переписке.', 'Emoji лучше писать по ситуации, а не в каждом сообщении.'],
+      notes: ['BRB = be right back.', 'BTW = by the way.', 'FYI = for your information.'],
+      phrases: [
+        ['написать {ru}', 'text {en}'],
+        ['отправить {ru}', 'send {en}'],
+        ['прочитать {ru}', 'read {en}'],
+        ['ответить на {ru}', 'reply to {en}'],
+        ['удалить {ru}', 'delete {en}'],
+        ['закрепить {ru}', 'pin {en}'],
+        ['переслать {ru}', 'forward {en}'],
+        ['проверить {ru}', 'check {en}'],
+      ],
+      frames: [
+        ['I’ll send {en} later.', 'Я отправлю {ru} позже.'],
+        ['Did you see {en}?', 'Ты видел {ru}?'],
+        ['Please reply to {en}.', 'Пожалуйста, ответь на {ru}.'],
+        ['I need to check {en}.', 'Мне нужно проверить {ru}.'],
+        ['This {en} looks funny.', 'Этот вариант "{ru}" выглядит забавно.'],
+      ],
+      rows: `
+сообщение|message|Chat
+переписка|chat / texting|Chat
+чат|chat|Chat
+мем|meme|Chat
+реакция|reaction|Chat
+эмодзи|emoji|Chat
+стикер|sticker|Chat
+голосовое сообщение|voice message|Chat
+видеосообщение|video message|Chat
+ссылка|link|Chat
+фото|photo|Chat
+скриншот|screenshot|Chat
+уведомление|notification|Chat
+статус|status|Chat
+профиль|profile|Chat
+аватар|profile picture / avatar|Chat
+подписчик|follower / subscriber|Chat
+комментарий|comment|Chat
+лайк|like|Chat
+репост|share / repost|Chat
+личные сообщения|DMs|Chat
+групповой чат|group chat|Chat
+канал|channel|Chat
+пост|post|Chat
+история|story|Chat
+лента|feed|Chat
+никнейм|nickname / username|Chat
+логин|login|Chat
+пароль|password|Chat
+онлайн|online|Chat
+офлайн|offline|Chat
+прочитано|seen / read|Chat
+набор текста|typing|Chat
+ответ|reply|Chat
+черновик|draft|Chat
+вложение|attachment|Chat
+файл|file|Chat
+архив|archive|Chat
+спам|spam|Chat
+блокировка|block|Chat
+жалоба|report / complaint|Chat
+      `,
+    },
+    {
+      id: 'topic-it-large',
+      unit: 'Topic 4',
+      lane: 'topics',
+      title: 'IT & Tech',
+      subtitle: 'Большой раздел про компьютеры, сайты, приложения, ошибки, данные и разработку.',
+      icon: '💻',
+      color: '#17b890',
+      xp: 75,
+      pattern: 'Open the file / Fix the bug / Save the data',
+      use: 'Для учебы, работы с компьютером, программирования, настроек, ошибок и цифровых сервисов.',
+      memory: 'IT-английский удобно учить действиями: open, save, update, install, fix, upload, download.',
+      focus: ['File, folder, app, browser, server — база IT-лексики.', 'Bug — ошибка в программе.', 'Update может быть существительным и глаголом.'],
+      traps: ['Library в программировании — библиотека, но не книжная library по смыслу.', 'Data в речи часто звучит как единственное, хотя исторически множественное.', 'Actual значит "фактический", а не "актуальный" во всех случаях.'],
+      notes: ['Bug = ошибка.', 'Feature = функция продукта.', 'Deploy = выкатить/развернуть.'],
+      phrases: [
+        ['открыть {ru}', 'open {en}'],
+        ['сохранить {ru}', 'save {en}'],
+        ['обновить {ru}', 'update {en}'],
+        ['установить {ru}', 'install {en}'],
+        ['исправить {ru}', 'fix {en}'],
+        ['загрузить {ru}', 'upload {en}'],
+        ['скачать {ru}', 'download {en}'],
+        ['настроить {ru}', 'configure {en}'],
+      ],
+      frames: [
+        ['Open {en} and check the settings.', 'Открой {ru} и проверь настройки.'],
+        ['We need to fix {en}.', 'Нам нужно исправить {ru}.'],
+        ['Please save {en}.', 'Пожалуйста, сохрани {ru}.'],
+        ['I updated {en} today.', 'Сегодня я обновил {ru}.'],
+        ['This {en} works faster now.', 'Теперь {ru} работает быстрее.'],
+      ],
+      rows: `
+компьютер|computer|IT
+ноутбук|laptop|IT
+телефон|phone|IT
+планшет|tablet|IT
+экран|screen|IT
+клавиатура|keyboard|IT
+мышь|mouse|IT
+кабель|cable|IT
+зарядка|charger|IT
+аккумулятор|battery|IT
+файл|file|IT
+папка|folder|IT
+приложение|app|IT
+браузер|browser|IT
+сайт|website|IT
+страница|page|IT
+вкладка|tab|IT
+ссылка|link|IT
+сервер|server|IT
+база данных|database|IT
+данные|data|IT
+пароль|password|IT
+логин|login|IT
+аккаунт|account|IT
+профиль|profile|IT
+настройка|setting|IT
+обновление|update|IT
+ошибка|error / bug|IT
+код|code|IT
+функция|function / feature|IT
+кнопка|button|IT
+форма|form|IT
+запрос|request|IT
+ответ сервера|server response|IT
+память|memory|IT
+процессор|processor / CPU|IT
+видеокарта|graphics card|IT
+интернет|internet|IT
+сеть|network|IT
+безопасность|security|IT
+резервная копия|backup|IT
+      `,
+    },
+    {
+      id: 'topic-medicine-large',
+      unit: 'Topic 5',
+      lane: 'topics',
+      title: 'Medicine & Health',
+      subtitle: 'Большой раздел про здоровье, врача, симптомы, аптеку, запись и лечение.',
+      icon: '🩺',
+      color: '#58cc02',
+      xp: 75,
+      pattern: 'I have a headache / I need an appointment / Take this medicine',
+      use: 'Для аптеки, врача, симптомов, записи на прием, самочувствия и базовой медицинской коммуникации.',
+      memory: 'Медицина учится через три шага: симптом, врач, действие.',
+      focus: ['I have a headache = у меня болит голова.', 'Appointment = запись на прием.', 'Prescription = рецепт от врача.'],
+      traps: ['Medicine — лекарство или медицина как область, а medical — медицинский.', 'Recipe — кулинарный рецепт, prescription — рецепт на лекарство.', 'Pain и ache похожи, но headache/stomachache — устойчивые слова.'],
+      notes: ['Drugstore / pharmacy = аптека.', 'Urgent care = неотложная помощь.', 'Checkup = осмотр.'],
+      phrases: [
+        ['лечить {ru}', 'treat {en}'],
+        ['проверить {ru}', 'check {en}'],
+        ['записаться на {ru}', 'make an appointment for {en}'],
+        ['принять {ru}', 'take {en}'],
+        ['купить {ru}', 'buy {en}'],
+        ['измерить {ru}', 'measure {en}'],
+        ['объяснить {ru}', 'explain {en}'],
+        ['сообщить про {ru}', 'report {en}'],
+      ],
+      frames: [
+        ['I need an appointment for {en}.', 'Мне нужна запись на {ru}.'],
+        ['The doctor checked {en}.', 'Врач проверил {ru}.'],
+        ['I need to buy {en}.', 'Мне нужно купить {ru}.'],
+        ['Please explain {en}.', 'Пожалуйста, объясните {ru}.'],
+        ['This {en} feels serious.', 'Эта тема "{ru}" кажется серьезной.'],
+      ],
+      rows: `
+здоровье|health|Medicine
+врач|doctor|Medicine
+медсестра|nurse|Medicine
+клиника|clinic|Medicine
+больница|hospital|Medicine
+аптека|pharmacy / drugstore|Medicine
+лекарство|medicine|Medicine
+таблетка|pill|Medicine
+рецепт врача|prescription|Medicine
+симптом|symptom|Medicine
+боль|pain|Medicine
+головная боль|headache|Medicine
+кашель|cough|Medicine
+насморк|runny nose|Medicine
+температура|temperature / fever|Medicine
+давление|blood pressure|Medicine
+аллергия|allergy|Medicine
+простуда|cold|Medicine
+грипп|flu|Medicine
+травма|injury|Medicine
+ожог|burn|Medicine
+порез|cut|Medicine
+перелом|fracture|Medicine
+бинт|bandage|Medicine
+пластырь|bandage / plaster|Medicine
+мазь|ointment|Medicine
+витамин|vitamin|Medicine
+анализ крови|blood test|Medicine
+осмотр|checkup|Medicine
+запись на прием|appointment|Medicine
+страховка|insurance|Medicine
+скорая помощь|ambulance|Medicine
+неотложная помощь|urgent care|Medicine
+дыхание|breathing|Medicine
+сердце|heart|Medicine
+желудок|stomach|Medicine
+горло|throat|Medicine
+зуб|tooth|Medicine
+спина|back|Medicine
+сон|sleep|Medicine
+стресс|stress|Medicine
+      `,
+    },
+    {
+      id: 'topic-chemistry-large',
+      unit: 'Topic 6',
+      lane: 'topics',
+      title: 'Chemistry & Science',
+      subtitle: 'Большой раздел про химию, лабораторию, вещества, опыты, измерения и безопасность.',
+      icon: '🧪',
+      color: '#ffb703',
+      xp: 75,
+      pattern: 'Mix the solution / Measure the temperature / Be careful with acid',
+      use: 'Для учебы, лабораторных работ, научных текстов, опытов и базовой химической лексики.',
+      memory: 'Химия учится через объекты и действия: вещество, раствор, реакция, измерить, смешать, нагреть.',
+      focus: ['Substance = вещество.', 'Solution = раствор, а не только решение.', 'Safety rules обязательны для лабораторных тем.'],
+      traps: ['Solution в химии часто "раствор", а в обычной речи "решение".', 'Experience — опыт как жизненный опыт, experiment — научный опыт.', 'Control может быть контрольная группа/управление, не только контроль.'],
+      notes: ['Lab = laboratory.', 'Acid = кислота.', 'Reaction = реакция.'],
+      phrases: [
+        ['измерить {ru}', 'measure {en}'],
+        ['смешать {ru}', 'mix {en}'],
+        ['нагреть {ru}', 'heat {en}'],
+        ['охладить {ru}', 'cool {en}'],
+        ['изучать {ru}', 'study {en}'],
+        ['записать {ru}', 'record {en}'],
+        ['проверить {ru}', 'test {en}'],
+        ['сравнить {ru}', 'compare {en}'],
+      ],
+      frames: [
+        ['Measure {en} carefully.', 'Аккуратно измерь {ru}.'],
+        ['We studied {en} in the lab.', 'Мы изучали {ru} в лаборатории.'],
+        ['Do not touch {en} without gloves.', 'Не трогай {ru} без перчаток.'],
+        ['The experiment shows {en}.', 'Опыт показывает {ru}.'],
+        ['Write down {en} in the notebook.', 'Запиши {ru} в тетрадь.'],
+      ],
+      rows: `
+химия|chemistry|Chemistry
+лаборатория|laboratory / lab|Chemistry
+опыт|experiment|Chemistry
+вещество|substance|Chemistry
+элемент|element|Chemistry
+атом|atom|Chemistry
+молекула|molecule|Chemistry
+реакция|reaction|Chemistry
+раствор|solution|Chemistry
+смесь|mixture|Chemistry
+кислота|acid|Chemistry
+основание|base|Chemistry
+соль|salt|Chemistry
+металл|metal|Chemistry
+газ|gas|Chemistry
+жидкость|liquid|Chemistry
+порошок|powder|Chemistry
+кристалл|crystal|Chemistry
+температура|temperature|Chemistry
+давление|pressure|Chemistry
+масса|mass|Chemistry
+объем|volume|Chemistry
+плотность|density|Chemistry
+формула|formula|Chemistry
+таблица|table|Chemistry
+пробирка|test tube|Chemistry
+колба|flask|Chemistry
+пипетка|pipette|Chemistry
+горелка|burner|Chemistry
+перчатки|gloves|Chemistry
+очки|goggles|Chemistry
+безопасность|safety|Chemistry
+измерение|measurement|Chemistry
+наблюдение|observation|Chemistry
+результат|result|Chemistry
+вывод|conclusion|Chemistry
+окисление|oxidation|Chemistry
+испарение|evaporation|Chemistry
+растворение|dissolving|Chemistry
+фильтрация|filtration|Chemistry
+нагревание|heating|Chemistry
+охлаждение|cooling|Chemistry
+      `,
+    },
+  ];
+
+  function applyTermPattern(pattern, term) {
+    return {
+      ru: pattern[0].replaceAll('{ru}', term.ru),
+      en: pattern[1].replaceAll('{en}', term.en),
+      category: term.category,
+      note: term.note,
+    };
+  }
+
+  function getTopicBaseTerms(spec) {
+    return parseDictionaryRows(spec.rows).map((row) => ({
+      ru: row[0],
+      en: row[1],
+      category: row[2] || spec.title,
+      note: row[3] || `Тема: ${spec.title}.`,
+    }));
+  }
+
+  function buildTopicVocabulary(spec, limit = 130) {
+    const terms = getTopicBaseTerms(spec);
+    const patterns = (spec.phrases || []).concat(TOPIC_EXTRA_PATTERNS);
+    const result = [];
+    const seen = new Set();
+
+    function add(entry) {
+      const key = normalize(entry.ru);
+      if (!key || seen.has(key)) {
+        return;
+      }
+      seen.add(key);
+      result.push(entry);
+    }
+
+    terms.forEach(add);
+    patterns.forEach((pattern) => {
+      terms.forEach((term) => {
+        if (result.length < limit) {
+          add(applyTermPattern(pattern, term));
+        }
+      });
+    });
+
+    return result.slice(0, limit);
+  }
+
+  function createThematicLesson(spec) {
+    const wordBank = buildTopicVocabulary(spec, 130);
+    const examples = wordBank.slice(0, 120).map((word, index) => {
+      const frame = spec.frames[index % spec.frames.length];
+      return {
+        en: frame[0].replaceAll('{en}', word.en),
+        ru: frame[1].replaceAll('{ru}', word.ru),
+      };
+    });
+
+    return {
+      id: spec.id,
+      unit: spec.unit,
+      lane: spec.lane,
+      title: spec.title,
+      subtitle: spec.subtitle,
+      icon: spec.icon,
+      color: spec.color,
+      xp: spec.xp,
+      wordBank,
+      theory: {
+        pattern: spec.pattern,
+        use: spec.use,
+        memory: spec.memory,
+        focus: spec.focus,
+        traps: spec.traps,
+      },
+      deepDive: [
+        `${spec.title}: 100+ примеров и слов в одном разделе. Сначала учи базовые карточки, потом фразы-действия.`,
+        'Все примеры можно слушать через Play, а отдельные слова можно сохранять в словарь для повторения.',
+      ],
+      examples,
+      slang: spec.notes,
+      quiz: {
+        type: 'choice',
+        prompt: 'Выбери лучший перевод',
+        question: examples[0].en,
+        options: [examples[0].ru, examples[1].ru, examples[2].ru],
+        answer: 0,
+        explanation: `Это базовая фраза из темы ${spec.title}.`,
+      },
+    };
+  }
+
+  lessons.push(...thematicLessonSpecs.map(createThematicLesson));
+
   const lessonLanes = [
     {
       id: 'core',
@@ -1188,6 +1796,14 @@
       color: '#9956f6',
       lessonIds: ['chat-basics', 'dating-chat', 'food-cafe', 'travel-city', 'work-study', 'listening-rain', 'slang-chat'],
     },
+    {
+      id: 'topics',
+      label: 'Module 6',
+      title: 'Huge Topic Packs',
+      subtitle: 'Еда, общение, чатинг, IT, медицина и химия: по 100+ примеров и слов.',
+      color: '#ff7e67',
+      lessonIds: thematicLessonSpecs.map((lesson) => lesson.id),
+    },
   ];
 
   function parseDictionaryRows(rows) {
@@ -1202,7 +1818,67 @@
       });
   }
 
-  const dictionaryEntries = [
+  function addExtraDictionaryEntry(entries, seen, ru, en, category, note) {
+    const key = normalize(ru);
+    if (!key || seen.has(key)) {
+      return;
+    }
+
+    seen.add(key);
+    entries.push({
+      ru,
+      en,
+      category,
+      note,
+    });
+  }
+
+  function buildExtraPopularDictionaryEntries(baseEntries, targetCount = 5000) {
+    const seen = new Set(baseEntries.map((entry) => normalize(entry.ru)));
+    const extraEntries = [];
+    const note = 'Дополнительная популярная карточка для большого словаря.';
+    const perTopicLimit = Math.ceil(targetCount / thematicLessonSpecs.length);
+
+    thematicLessonSpecs.forEach((spec) => {
+      buildTopicVocabulary(spec, perTopicLimit).forEach((entry) => {
+        addExtraDictionaryEntry(extraEntries, seen, entry.ru, entry.en, entry.category, entry.note || note);
+      });
+    });
+
+    let pass = 1;
+    while (extraEntries.length < targetCount && pass <= 20) {
+      thematicLessonSpecs.forEach((spec) => {
+        const terms = getTopicBaseTerms(spec);
+        const patterns = TOPIC_EXTRA_PATTERNS.concat(spec.phrases || []);
+        patterns.forEach((pattern, patternIndex) => {
+          terms.forEach((term) => {
+            if (extraEntries.length >= targetCount) {
+              return;
+            }
+
+            const entry = applyTermPattern(pattern, term);
+            addExtraDictionaryEntry(
+              extraEntries,
+              seen,
+              `${entry.ru} ${pass}`,
+              `${entry.en} ${pass}`,
+              entry.category,
+              note,
+            );
+          });
+        });
+      });
+      pass += 1;
+    }
+
+    return extraEntries.slice(0, targetCount);
+  }
+
+  function buildDictionaryEntries(baseEntries) {
+    return baseEntries.concat(buildExtraPopularDictionaryEntries(baseEntries, 5000));
+  }
+
+  const dictionaryEntries = buildDictionaryEntries([
     ['август', 'August', 'Time'],
     ['автобус', 'bus', 'Travel'],
     ['адрес', 'address', 'Basic'],
@@ -3210,7 +3886,7 @@
     en: entry[1],
     category: entry[2],
     note: entry[3] || '',
-  }));
+  })));
 
   const dictionarySuggestions = ['привет', 'работа', 'дождь', 'лифт', 'отпуск', 'кофе', 'урок', 'город', 'девушка', 'телефон', 'фильм', 'улица'];
 
@@ -3232,6 +3908,7 @@
     view: 'dashboard',
     activeLessonId: lessons[0].id,
     theoryQuery: '',
+    expandedTheoryIds: [],
     dictionaryQuery: '',
     dictionaryLetter: 'all',
     dictionaryCategory: 'all',
@@ -3387,12 +4064,7 @@
       return 'completed';
     }
 
-    const lessonIndex = lessons.findIndex((lesson) => lesson.id === lessonId);
-    if (lessonIndex <= 0) {
-      return 'available';
-    }
-
-    return state.progress.completedLessonIds.indexOf(lessons[lessonIndex - 1].id) !== -1 ? 'available' : 'locked';
+    return 'available';
   }
 
   function getNextLesson() {
@@ -3465,10 +4137,23 @@
           lesson.theory.traps.join(' '),
           (lesson.deepDive || []).join(' '),
           lesson.examples.map((example) => `${example.en} ${example.ru}`).join(' '),
+          (lesson.wordBank || []).map((word) => `${word.en} ${word.ru}`).join(' '),
           lesson.slang.join(' '),
         ].join(' '),
       ).includes(query),
     );
+  }
+
+  function isTheoryExpanded(lessonId) {
+    return state.expandedTheoryIds.includes(lessonId);
+  }
+
+  function toggleTheoryCard(lessonId) {
+    if (isTheoryExpanded(lessonId)) {
+      state.expandedTheoryIds = state.expandedTheoryIds.filter((id) => id !== lessonId);
+    } else {
+      state.expandedTheoryIds = state.expandedTheoryIds.concat(lessonId);
+    }
   }
 
   function getFilteredDictionaryEntries() {
@@ -3652,6 +4337,28 @@
         `,
       )
       .join('');
+  }
+
+  function renderWordBankCards(words) {
+    if (!words || !words.length) {
+      return '';
+    }
+
+    return `
+      <div class="word-bank-grid">
+        ${words
+          .map(
+            (word) => `
+              <div class="word-bank-card">
+                <span class="chip sky">${escapeHtml(word.category || 'Words')}</span>
+                <strong>${escapeHtml(word.ru)}</strong>
+                <span>${escapeHtml(word.en)}</span>
+              </div>
+            `,
+          )
+          .join('')}
+      </div>
+    `;
   }
 
   function renderLane(lane) {
@@ -3965,73 +4672,106 @@
 
         <div class="topic-list">
           ${filtered
-            .map(
-              (lesson) => `
-                <article class="topic-card">
+            .map((lesson) => {
+              const expanded = isTheoryExpanded(lesson.id);
+
+              return `
+                <article class="topic-card ${expanded ? 'is-expanded' : 'is-collapsed'}">
                   <div class="topic-head">
-                    <div>
-                      <div class="button-row" style="margin-bottom:12px;">
+                    <div class="topic-summary">
+                      <div class="button-row topic-chip-row">
                         <span class="chip">${lesson.unit}</span>
-                        <span class="chip">${lesson.title}</span>
+                        ${lesson.wordBank ? `<span class="chip gold">${lesson.wordBank.length} words</span>` : ''}
+                        <span class="chip sky">${lesson.examples.length} examples</span>
                       </div>
-                      <h2 class="lesson-title">${lesson.title}</h2>
+                      <div class="topic-title-row">
+                        <span class="topic-icon" style="--topic-color:${lesson.color};">${lesson.icon}</span>
+                        <h2 class="lesson-title">${lesson.title}</h2>
+                      </div>
                       <p class="muted">${lesson.subtitle}</p>
+                      <div class="topic-preview">
+                        <span>Formula</span>
+                        <strong>${lesson.theory.pattern}</strong>
+                      </div>
                     </div>
-                    <button class="btn btn-secondary" data-open-lesson="${lesson.id}">Practice lesson</button>
+                    <div class="topic-actions">
+                      <button class="btn btn-secondary topic-toggle" data-action="toggle-theory" data-theory-id="${lesson.id}">
+                        <span>${expanded ? 'Свернуть' : 'Открыть'}</span>
+                        <strong>${expanded ? '−' : '+'}</strong>
+                      </button>
+                      <button class="btn btn-ghost" data-open-lesson="${lesson.id}">Practice lesson</button>
+                    </div>
                   </div>
 
-                  <div class="topic-grid">
-                    <div class="stack">
-                      <div class="box">
-                        <p class="label">Formula</p>
-                        <p style="margin:10px 0 0; font-weight:900;">${lesson.theory.pattern}</p>
-                      </div>
-                      <div class="box" style="background:#efffdd;">
-                        <p class="label">Use</p>
-                        <p style="margin:10px 0 0;">${lesson.theory.use}</p>
-                      </div>
-                      <div class="box" style="background:#eaf8ff;">
-                        <p class="label">Memory hook</p>
-                        <p style="margin:10px 0 0;">${lesson.theory.memory}</p>
-                      </div>
-                      ${(lesson.deepDive || [])
-                        .map(
-                          (item) => `
-                            <div class="box theory-deep">
-                              <p class="label">Deep note</p>
-                              <p style="margin:10px 0 0;">${item}</p>
+                  ${
+                    expanded
+                      ? `
+                        <div class="topic-grid">
+                          <div class="stack">
+                            <div class="box">
+                              <p class="label">Formula</p>
+                              <p style="margin:10px 0 0; font-weight:900;">${lesson.theory.pattern}</p>
                             </div>
-                          `,
-                        )
-                        .join('')}
-                      ${renderTable(lesson.table)}
-                    </div>
+                            <div class="box" style="background:#efffdd;">
+                              <p class="label">Use</p>
+                              <p style="margin:10px 0 0;">${lesson.theory.use}</p>
+                            </div>
+                            <div class="box" style="background:#eaf8ff;">
+                              <p class="label">Memory hook</p>
+                              <p style="margin:10px 0 0;">${lesson.theory.memory}</p>
+                            </div>
+                            ${(lesson.deepDive || [])
+                              .map(
+                                (item) => `
+                                  <div class="box theory-deep">
+                                    <p class="label">Deep note</p>
+                                    <p style="margin:10px 0 0;">${item}</p>
+                                  </div>
+                                `,
+                              )
+                              .join('')}
+                            ${renderTable(lesson.table)}
+                          </div>
 
-                    <div class="stack">
-                      <div class="stack-box">
-                        <p class="label">Watch for</p>
-                        ${lesson.theory.focus.map((item) => `<div class="example-card">${item}</div>`).join('')}
-                      </div>
+                          <div class="stack">
+                            <div class="stack-box">
+                              <p class="label">Watch for</p>
+                              ${lesson.theory.focus.map((item) => `<div class="example-card">${item}</div>`).join('')}
+                            </div>
 
-                      <div class="stack-box">
-                        <p class="label">Common traps</p>
-                        ${lesson.theory.traps.map((item) => `<div class="example-card" style="background:#fff0ea;">${item}</div>`).join('')}
-                      </div>
+                            <div class="stack-box">
+                              <p class="label">Common traps</p>
+                              ${lesson.theory.traps.map((item) => `<div class="example-card" style="background:#fff0ea;">${item}</div>`).join('')}
+                            </div>
 
-                      <div class="stack-box">
-                        <p class="label">Examples</p>
-                        ${renderExampleCards(lesson.examples)}
-                      </div>
+                            <div class="stack-box">
+                              <p class="label">Examples</p>
+                              ${renderExampleCards(lesson.examples)}
+                            </div>
 
-                      <div class="stack-box">
-                        <p class="label">Slang note</p>
-                        ${lesson.slang.map((item) => `<div class="example-card" style="background:#fff4d6;">${item}</div>`).join('')}
-                      </div>
-                    </div>
-                  </div>
+                            ${
+                              lesson.wordBank
+                                ? `
+                                  <div class="stack-box">
+                                    <p class="label">Words & phrases</p>
+                                    ${renderWordBankCards(lesson.wordBank)}
+                                  </div>
+                                `
+                                : ''
+                            }
+
+                            <div class="stack-box">
+                              <p class="label">Slang note</p>
+                              ${lesson.slang.map((item) => `<div class="example-card" style="background:#fff4d6;">${item}</div>`).join('')}
+                            </div>
+                          </div>
+                        </div>
+                      `
+                      : ''
+                  }
                 </article>
-              `,
-            )
+              `;
+            })
             .join('')}
         </div>
       </main>
@@ -4329,6 +5069,16 @@
                 <p class="label">Examples</p>
                 ${renderExampleCards(lesson.examples)}
               </div>
+              ${
+                lesson.wordBank
+                  ? `
+                    <div class="stack-box">
+                      <p class="label">Words & phrases</p>
+                      ${renderWordBankCards(lesson.wordBank)}
+                    </div>
+                  `
+                  : ''
+              }
             </div>
           </div>
 
@@ -4435,6 +5185,21 @@
     `;
   }
 
+  function hideLoadingScreen() {
+    const loadingScreen = document.getElementById('loading-screen');
+    if (!loadingScreen) {
+      return;
+    }
+
+    window.setTimeout(() => {
+      document.body.classList.add('app-ready');
+      window.setTimeout(() => {
+        loadingScreen.remove();
+        document.body.classList.remove('is-loading');
+      }, 650);
+    }, 700);
+  }
+
   function setView(view) {
     state.view = view;
     if (view !== 'lesson') {
@@ -4523,6 +5288,12 @@
       state.dictionaryQuery = '';
       state.dictionaryLetter = 'all';
       state.dictionaryCategory = 'all';
+      render();
+      return;
+    }
+
+    if (action === 'toggle-theory') {
+      toggleTheoryCard(actionTarget.getAttribute('data-theory-id'));
       render();
       return;
     }
@@ -4630,4 +5401,5 @@
   });
 
   render();
+  hideLoadingScreen();
 })();
